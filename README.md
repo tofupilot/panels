@@ -12,10 +12,6 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 | [Turn Coordinator](turn-coordinator) | An aircraft that banks with the turn rate, and a slip ball |
 | [Heading Indicator](heading) | A compass card that turns under the lubber line, with a heading bug |
 | [Vertical Speed Indicator](vertical-speed) | An arc that fills up in a climb, down in a descent, red past a sink limit |
-| [Battery Pack Charge](battery-charge) | State of charge, bars for eight cells, measurement results colored by their limits |
-| [Power Rails Fixture](power-rails) | A board drawing whose test points light up with each rail's result |
-| [Motor Spin Test](motor-spin) | Arc gauges and setpoint lights driven by CSS variables |
-| [Cooling Fan Test](fan-test) | Looping CSS animations started and stopped by a live value |
 
 ## Run an Example
 

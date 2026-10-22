@@ -1,6 +1,6 @@
 """Run an example with the TofuPilot CLI and record what its panel shows.
 
-    python scripts/record.py airspeed battery-charge ...
+    python scripts/record.py airspeed altimeter ...
 
 Writes <example>/preview.json: the panel's phase and every value the phase
 sent while it ran, timestamped, with each measurement's verdict and limits

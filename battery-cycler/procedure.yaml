@@ -1,0 +1,31 @@
+name: Battery Cycler Channel
+version: 1.0.0
+
+plugs:
+  - key: cycler
+    name: Battery cycler
+    python: plugs.cycler:BatteryCycler
+
+main:
+  - key: cycle
+    name: Charge and discharge
+    python: phases.battery_cycler:charge_and_discharge
+    measurements:
+      - key: cc_charge_current
+        name: Constant-current charge current
+        unit: "A"
+        validators:
+          - operator: ">="
+            expected_value: 49
+          - operator: "<="
+            expected_value: 51
+      - key: cv_voltage
+        name: Voltage held in CV
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 54.5
+          - operator: "<="
+            expected_value: 54.7
+    ui:
+      panel: panels/cycler.html

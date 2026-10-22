@@ -1,0 +1,21 @@
+name: Charge and Discharge
+version: 1.0.0
+
+plugs:
+  - key: cycler
+    name: Battery cycler
+    python: plugs.cycler:BatteryCycler
+
+main:
+  - key: plot
+    name: Charge and discharge
+    python: phases.battery_cycle:charge_and_discharge
+    measurements:
+      - key: end_of_discharge_voltage
+        name: Lowest voltage of the discharge
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 39.0
+    ui:
+      panel: panels/cycle.html

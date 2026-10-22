@@ -1,38 +1,34 @@
 <div class="inst" data-bind="ui.soc_state">
-  <div class="top"><span class="label">SOC</span><span class="aux" data-bind="ui.step">—</span></div>
-  <div class="value"><b data-bind="ui.soc" data-format="0">0</b><span>%</span></div>
-  <div class="battery">
-    <div class="body" data-bind="ui.soc"><i></i></div>
-    <div class="cap"></div>
-  </div>
+<svg viewBox="0 0 320 210" role="img"><rect x="1" y="1" width="318" height="208" rx="10" fill="#0d1014" stroke="#20262c" stroke-width="1.5"/><text x="24" y="30" text-anchor="start" style="font: 600 7.5px system-ui, sans-serif; letter-spacing: .16em; fill: #7d8791">STATE OF CHARGE</text><text x="296" y="30" text-anchor="end" data-bind="ui.step" style="font: 600 8px ui-monospace, Menlo, monospace; letter-spacing: .04em; fill: #7d8791">—</text><text x="22" y="82" style="font: 600 46px ui-monospace, Menlo, monospace; fill: #f2f4f6"><tspan class="big" data-bind="ui.soc" data-format="0">0</tspan><tspan dx="8" style="font: 600 13px system-ui, sans-serif; fill: #7d8791">%</tspan></text><g class="segs" data-bind="ui.soc"><rect x="24.0" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 0) * 1, 1)"/><rect x="37.7" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 5) * 1, 1)"/><rect x="51.4" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 10) * 1, 1)"/><rect x="65.1" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 15) * 1, 1)"/><rect x="78.8" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 20) * 1, 1)"/><rect x="92.5" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 25) * 1, 1)"/><rect x="106.2" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 30) * 1, 1)"/><rect x="119.9" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 35) * 1, 1)"/><rect x="133.6" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 40) * 1, 1)"/><rect x="147.3" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 45) * 1, 1)"/><rect x="161.0" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 50) * 1, 1)"/><rect x="174.7" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 55) * 1, 1)"/><rect x="188.4" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 60) * 1, 1)"/><rect x="202.1" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 65) * 1, 1)"/><rect x="215.8" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 70) * 1, 1)"/><rect x="229.5" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 75) * 1, 1)"/><rect x="243.2" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 80) * 1, 1)"/><rect x="256.9" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 85) * 1, 1)"/><rect x="270.6" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 90) * 1, 1)"/><rect x="284.3" y="104" width="10.5" height="34" rx="2.5" style="opacity: clamp(.13, (var(--value, 0) - 95) * 1, 1)"/></g><text x="24" y="164" text-anchor="start" style="font: 600 7.5px system-ui, sans-serif; letter-spacing: .16em; fill: #7d8791">AH CHARGED</text><text x="130" y="164" text-anchor="start" style="font: 600 7.5px system-ui, sans-serif; letter-spacing: .16em; fill: #7d8791">AH DISCHARGED</text><text x="236" y="164" text-anchor="start" style="font: 600 7.5px system-ui, sans-serif; letter-spacing: .16em; fill: #7d8791">RATED</text><text x="24" y="186" text-anchor="start" data-bind="ui.ah_in" data-format="0.0" style="font: 600 15px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #f2f4f6">0.0</text><text x="130" y="186" text-anchor="start" data-bind="ui.ah_out" data-format="0.0" style="font: 600 15px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #f2f4f6">0.0</text><text x="236" y="186" text-anchor="start" style="font: 600 15px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7d8791">50 Ah</text></svg>
 </div>
 <style>
-  .inst {
-    --live: #4aa8ff;
-    width: min(520px, 100%); margin: 0 auto; display: grid; gap: 14px;
-    padding: 18px 20px 20px; border-radius: 14px; border: 1px solid #1f252b;
-    background: #0d1014; color: #f2f4f6; font-family: system-ui, sans-serif;
-  }
-  .inst[data-value=warn] { --live: #f2c230; }
-  .inst[data-value=alarm] { --live: #e5383b; }
-  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-  .label { font: 600 10px system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #7d8791; }
-  .aux { font: 500 11px ui-monospace, Menlo, monospace; color: #7d8791; font-variant-numeric: tabular-nums; }
-  .value { display: flex; align-items: baseline; gap: 6px; }
-  .value b { font: 600 32px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; transition: color .2s; }
-  .value span { font: 600 11px system-ui, sans-serif; letter-spacing: .12em; color: #7d8791; }
-  .inst[data-value=warn] .value b { color: #f2c230; }
-  .inst[data-value=alarm] .value b { color: #ff8a84; }
-  .scale { position: relative; height: 14px; font: 500 11px "Barlow Condensed", "Arial Narrow", sans-serif; color: #7d8791; }
-  .scale span { position: absolute; top: 0; transform: translateX(-50%); }
-  .scale span:first-child { transform: none; }
-  .scale span:last-child { transform: translateX(-100%); }
-  .battery { display: flex; align-items: center; gap: 3px; }
-  .body { flex: 1; height: 36px; padding: 3px; border: 2px solid #2a3037; border-radius: 7px; }
-  .body i {
-    display: block; height: 100%; border-radius: 4px; background: var(--live);
-    width: calc(clamp(0, var(--value, 0), 100) * 1%);
-    transition: width .2s linear, background-color .2s;
-  }
-  .cap { width: 5px; height: 14px; border-radius: 0 2px 2px 0; background: #2a3037; }
+  .inst { width: min(560px, 100%); margin: 0 auto; }
+  .inst svg { display: block; width: 100%; height: auto; }
+  .inst text { font-family: system-ui, sans-serif; }
+  .dp rect { fill: var(--off); }
+  .dp.on rect, .dp[data-value=true] rect { fill: var(--on); }
+  .led circle { fill: #2a2f35; transition: fill .15s; }
+  .led[data-value=true] circle { fill: var(--led, #38e07a); }
+  .ann text { fill: var(--off); transition: fill .15s; }
+  .ann[data-value=true] text { fill: var(--on); }
+  .d7 rect { fill: var(--off); transition: fill .08s; }
+  .d7[data-value="0"] :is(.sa, .sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="1"] :is(.sb, .sc) { fill: var(--on); }
+  .d7[data-value="2"] :is(.sa, .sb, .sd, .se, .sg) { fill: var(--on); }
+  .d7[data-value="3"] :is(.sa, .sb, .sc, .sd, .sg) { fill: var(--on); }
+  .d7[data-value="4"] :is(.sb, .sc, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="5"] :is(.sa, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="6"] :is(.sa, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="7"] :is(.sa, .sb, .sc) { fill: var(--on); }
+  .d7[data-value="8"] :is(.sa, .sb, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="9"] :is(.sa, .sb, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="-"] :is(.sg) { fill: var(--on); }
+  .d7[data-value="E"] :is(.sa, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="U"] :is(.sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="r"] :is(.se, .sg) { fill: var(--on); }
+  .segs rect { fill: #4aa8ff; transition: opacity .2s, fill .2s; }
+  .inst[data-value=warn] .segs rect { fill: #f2c230; }
+  .inst[data-value=alarm] .segs rect { fill: #e5383b; }
+  .inst[data-value=warn] .big { fill: #f2c230 !important; }
+  .inst[data-value=alarm] .big { fill: #ff8a84 !important; }
 </style>

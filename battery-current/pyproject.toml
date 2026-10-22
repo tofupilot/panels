@@ -1,5 +1,0 @@
-[project]
-name = "panels-battery-current"
-version = "1.0.0"
-requires-python = ">=3.10"
-dependencies = []

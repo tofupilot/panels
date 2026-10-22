@@ -1,0 +1,23 @@
+name: Spectrum Analyzer
+version: 1.0.0
+
+plugs:
+  - key: analyzer
+    name: Spectrum analyzer
+    python: plugs.spectrum_analyzer:SpectrumAnalyzer
+
+main:
+  - key: downlink
+    name: Acquire downlink
+    python: phases.spectrum_analyzer:acquire
+    measurements:
+      - key: carrier_level
+        name: Carrier peak level
+        unit: "dBm"
+        validators:
+          - operator: ">="
+            expected_value: -55
+          - operator: "<="
+            expected_value: -40
+    ui:
+      panel: panels/analyzer.html

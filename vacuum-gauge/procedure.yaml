@@ -1,0 +1,21 @@
+name: Vacuum Gauge Controller
+version: 1.0.0
+
+plugs:
+  - key: gauge
+    name: Vacuum gauge controller
+    python: plugs.vacuum_gauge:VacuumGauge
+
+main:
+  - key: pumpdown
+    name: Pump down
+    python: phases.vacuum_gauge:pump_down
+    measurements:
+      - key: test_pressure
+        name: Chamber pressure at the end of pump-down
+        unit: "Pa"
+        validators:
+          - operator: "<="
+            expected_value: 0.00133
+    ui:
+      panel: panels/gauge.html

@@ -9,7 +9,7 @@ plugs:
 main:
   - key: soc
     name: Charge and discharge
-    python: phases.soc:charge_and_discharge
+    python: phases.battery_soc:charge_and_discharge
     measurements:
       - key: soc_end_of_charge
         name: SOC at the end of the charge

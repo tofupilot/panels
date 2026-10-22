@@ -1,0 +1,21 @@
+name: Reaction Wheels
+version: 1.0.0
+
+plugs:
+  - key: telemetry
+    name: Spacecraft telemetry
+    python: plugs.telemetry:WheelTelemetry
+
+main:
+  - key: acs
+    name: Attitude control test
+    python: phases.reaction_wheels:watch_wheels
+    measurements:
+      - key: max_wheel_speed
+        name: Highest wheel speed
+        unit: "rpm"
+        validators:
+          - operator: "<="
+            expected_value: 6000
+    ui:
+      panel: panels/wheels.html

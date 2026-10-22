@@ -1,20 +1,18 @@
 # State of Charge
 
-The pack's state of charge as a battery outline that fills with the live SOC, with the cycler step next to it.
+State of charge as the cycler's software shows it: a large reading, twenty segments that go amber then red when low, and the charge moved so far.
 
 See it live at [tofupilot.com/panels#battery-soc](https://tofupilot.com/panels#battery-soc).
 
 ## How It Works
 
-`ui.soc` sets `--value` on the battery body, and the fill's width is `calc(var(--value) * 1%)`. `ui.soc_state`, bound on the panel's root, turns the fill and the reading amber under 20 % and red under 10 % with `[data-value=warn]` and `[data-value=alarm]`.
-
-The mocked cycler replays a CC-CV charge to 54.6 V, a rest and a 75 A discharge of a 13S NMC, 50 Ah pack. Limits are typical for NMC cells: set yours from your cell datasheet.
+The value only exists in software, so this is a software view, not an instrument. SOC is an estimate from the coulomb count, so it lives in software, not on an instrument. Each of the twenty segments sets its own opacity from `ui.soc` with `clamp(.13, var(--value) - 5k, 1)`: lit once SOC passes it. `ui.soc_state` turns them amber under 20 % and red under 10 %.
 
 | File | Role |
 |---|---|
 | `procedure.yaml` | The phase, its measurements and limits, and `ui.panel` |
-| `phases/soc.py` | The test |
-| `plugs/cycler.py` | The cycler, mocked |
+| `phases/battery_soc.py` | The test |
+| `plugs/cycler.py` | The instrument, mocked |
 | `panels/soc.html` | The panel |
 
 ## Run It
@@ -23,4 +21,4 @@ The mocked cycler replays a CC-CV charge to 54.6 V, a rest and a 75 A discharge 
 tofupilot run battery-soc
 ```
 
-Replace the mock in `plugs/cycler.py` with your cycler's and BMS's drivers to use it on a real bench.
+Replace the mock in `plugs/cycler.py` with your battery cycler's driver to use it on a real bench.

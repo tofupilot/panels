@@ -108,183 +108,219 @@
     ]
   },
   {
-    "slug": "tvac-pressure",
-    "title": "TVAC Chamber Pressure",
-    "description": "Thermal vacuum chamber pressure on a log scale from atmosphere to high vacuum, with the 1.33 × 10⁻³ Pa test vacuum line.",
+    "slug": "battery-cycler",
+    "title": "Battery Cycler Channel",
+    "description": "The front panel of a battery cycler channel: terminal voltage and current on a fluorescent display, the CC and CV mode, the direction, and the overcurrent trip.",
     "category": "gauges",
-    "industry": "aerospace",
+    "industry": "batteries",
     "tags": [
-      "Log scale",
-      "Test vacuum"
+      "7-segment",
+      "Annunciators"
     ],
     "cli": "2.8.0",
     "files": [
       "procedure.yaml",
-      "panels/pressure.html",
-      "phases/tvac_pressure.py",
-      "plugs/vacuum_gauge.py"
+      "panels/cycler.html",
+      "phases/battery_cycler.py",
+      "plugs/cycler.py"
     ]
   },
   {
-    "slug": "tvac-cycle",
-    "title": "TVAC Thermal Cycle",
-    "description": "A thermal vacuum cycle: the baseplate temperature against the cold and hot plateau setpoints, with the ±2 °C tolerance band and the dwell time.",
-    "category": "bars",
-    "industry": "aerospace",
-    "tags": [
-      "Setpoint band",
-      "Dwell"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/cycle.html",
-      "phases/tvac_cycle.py",
-      "plugs/thermal_controller.py"
-    ]
-  },
-  {
-    "slug": "random-vibration",
-    "title": "Random Vibration",
-    "description": "A random vibration run stepping −12, −6, −3 dB to full level, with the control Grms against the reference and its ±10 % tolerance band.",
-    "category": "bars",
-    "industry": "aerospace",
-    "tags": [
-      "Level steps",
-      "Tolerance band"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/random.html",
-      "phases/random_vibration.py",
-      "plugs/shaker.py"
-    ]
-  },
-  {
-    "slug": "power-bus",
-    "title": "Spacecraft Power Bus",
-    "description": "The 28 V bus feeding a unit under test, against its 22 to 36 V input range, with the current drawn and the inrush at switch-on.",
-    "category": "gauges",
-    "industry": "aerospace",
-    "tags": [
-      "Tape",
-      "Inrush"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/bus.html",
-      "phases/power_bus.py",
-      "plugs/power_supply.py"
-    ]
-  },
-  {
-    "slug": "rf-link",
-    "title": "RF Link Acquisition",
-    "description": "Downlink acquisition on the RF checkout equipment: carrier, bit sync and frame sync locks in order, and Eb/N0 against the 9.6 dB BPSK threshold.",
+    "slug": "battery-hitester",
+    "title": "Battery HiTester",
+    "description": "An AC internal resistance meter on the pack: resistance at 1 kHz and voltage on a reflective LCD, with the HI, IN and LO comparator lamps.",
     "category": "indicators",
-    "industry": "aerospace",
+    "industry": "batteries",
     "tags": [
-      "Lock lights",
-      "Eb/N0"
+      "Reflective LCD",
+      "Comparator"
     ],
     "cli": "2.8.0",
     "files": [
       "procedure.yaml",
-      "panels/link.html",
-      "phases/rf_link.py",
-      "plugs/rf_scoe.py"
+      "panels/hitester.html",
+      "phases/battery_hitester.py",
+      "plugs/hitester.py"
+    ]
+  },
+  {
+    "slug": "temperature-scanner",
+    "title": "Temperature Scanner",
+    "description": "An 8-channel thermocouple scanner on the cells, the busbar and the coolant, with each channel's alarm against the limit of the step being run.",
+    "category": "indicators",
+    "industry": "batteries",
+    "tags": [
+      "Multichannel LCD",
+      "Channel alarms"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/scanner.html",
+      "phases/temperature_scanner.py",
+      "plugs/scanner.py"
     ]
   },
   {
     "slug": "battery-soc",
     "title": "State of Charge",
-    "description": "The pack's state of charge as a battery outline that fills with the live SOC, with the cycler step next to it.",
+    "description": "State of charge as the cycler's software shows it: a large reading, twenty segments that go amber then red when low, and the charge moved so far.",
     "category": "bars",
     "industry": "batteries",
     "tags": [
-      "Battery outline",
-      "SOC thresholds"
+      "Segments",
+      "Software view"
     ],
     "cli": "2.8.0",
     "files": [
       "procedure.yaml",
       "panels/soc.html",
-      "phases/soc.py",
-      "plugs/cycler.py"
-    ]
-  },
-  {
-    "slug": "battery-current",
-    "title": "Pack Current",
-    "description": "Pack current on a center-zero tape: charge fills right, discharge fills left, red past the charge and discharge limits.",
-    "category": "gauges",
-    "industry": "batteries",
-    "tags": [
-      "Center-zero tape",
-      "Limit marks"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/current.html",
-      "phases/current.py",
-      "plugs/cycler.py"
-    ]
-  },
-  {
-    "slug": "battery-temperature",
-    "title": "Max Temperature",
-    "description": "Eight thermistors as dots on one temperature scale, with the hottest one named and limits that follow charge or discharge.",
-    "category": "indicators",
-    "industry": "batteries",
-    "tags": [
-      "Dot plot",
-      "Mode limits"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/temperature.html",
-      "phases/temperature.py",
+      "phases/battery_soc.py",
       "plugs/cycler.py"
     ]
   },
   {
     "slug": "cell-balance",
     "title": "Cell Voltage Balance",
-    "description": "Each of 13 cells as its deviation from the pack mean in mV, with balancing lights and the spread against its limits.",
+    "description": "The 13 cells as the BMS view shows them: each cell's deviation from the pack mean, the cells being balanced, and the spread against its limits.",
     "category": "bars",
     "industry": "batteries",
     "tags": [
       "Deviation bars",
-      "Balancing"
+      "Software view"
     ],
     "cli": "2.8.0",
     "files": [
       "procedure.yaml",
-      "panels/cells.html",
-      "phases/cells.py",
+      "panels/balance.html",
+      "phases/cell_balance.py",
       "plugs/cycler.py"
     ]
   },
   {
-    "slug": "battery-voltage",
-    "title": "Pack Voltage",
-    "description": "Pack voltage on a tape against the CV setpoint, red past the undervoltage and overvoltage limits.",
-    "category": "gauges",
+    "slug": "battery-cycle",
+    "title": "Charge and Discharge",
+    "description": "The cycler software's plot of the run: pack voltage and current as the cycle goes, over the faint profile still to come.",
+    "category": "layout",
     "industry": "batteries",
     "tags": [
-      "Tape",
-      "Setpoint mark"
+      "Chart",
+      "Software view"
     ],
     "cli": "2.8.0",
     "files": [
       "procedure.yaml",
-      "panels/voltage.html",
-      "phases/voltage.py",
+      "panels/cycle.html",
+      "phases/battery_cycle.py",
       "plugs/cycler.py"
+    ]
+  },
+  {
+    "slug": "vacuum-gauge",
+    "title": "Vacuum Gauge Controller",
+    "description": "A thermal vacuum chamber's gauge controller through a pump-down: a full-range gauge and a Pirani that goes underrange, with the setpoint relays the test waits on.",
+    "category": "indicators",
+    "industry": "aerospace",
+    "tags": [
+      "LED display",
+      "Setpoint relays"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/gauge.html",
+      "phases/vacuum_gauge.py",
+      "plugs/vacuum_gauge.py"
+    ]
+  },
+  {
+    "slug": "thermal-controller",
+    "title": "Thermal Controller",
+    "description": "A thermal vacuum chamber's programmer running one protoflight cycle on a unit's baseplate: process value in red, setpoint in green, heat and LN2 outputs, and the deviation alarm.",
+    "category": "indicators",
+    "industry": "aerospace",
+    "tags": [
+      "PV / SV",
+      "Program"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/controller.html",
+      "phases/thermal_controller.py",
+      "plugs/thermal_controller.py"
+    ]
+  },
+  {
+    "slug": "spectrum-analyzer",
+    "title": "Spectrum Analyzer",
+    "description": "The RF checkout spectrum analyzer on a spacecraft's S-band downlink: the noise floor, then the QPSK carrier rising out of it, with the marker on the peak.",
+    "category": "layout",
+    "industry": "aerospace",
+    "tags": [
+      "Trace",
+      "Marker"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/analyzer.html",
+      "phases/spectrum_analyzer.py",
+      "plugs/spectrum_analyzer.py"
+    ]
+  },
+  {
+    "slug": "spacecraft-power-supply",
+    "title": "Spacecraft Power Supply",
+    "description": "The EGSE supply feeding a spacecraft's 28 V bus: voltage and current through switch-on, the inrush, and the load steps as subsystems power up.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "7-segment",
+      "Annunciators"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/supply.html",
+      "phases/spacecraft_power_supply.py",
+      "plugs/power_supply.py"
+    ]
+  },
+  {
+    "slug": "random-vibration",
+    "title": "Random Vibration",
+    "description": "The vibration controller's PSD screen through a run at −12, −6, −3 dB and full level: reference, ±3 dB tolerance and ±6 dB abort lines, and the control spectrum.",
+    "category": "layout",
+    "industry": "aerospace",
+    "tags": [
+      "PSD",
+      "Software view"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/vibration.html",
+      "phases/random_vibration.py",
+      "plugs/shaker.py"
+    ]
+  },
+  {
+    "slug": "reaction-wheels",
+    "title": "Reaction Wheels",
+    "description": "Reaction wheel speeds from spacecraft telemetry during an attitude control test: four wheels in a pyramid on center-zero bars, amber near saturation, red past it.",
+    "category": "bars",
+    "industry": "aerospace",
+    "tags": [
+      "Center-zero bars",
+      "Software view"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/wheels.html",
+      "phases/reaction_wheels.py",
+      "plugs/telemetry.py"
     ]
   }
 ]

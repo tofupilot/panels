@@ -3,7 +3,7 @@ version: 1.0.0
 
 plugs:
   - key: shaker
-    name: Shaker controller
+    name: Vibration controller
     python: plugs.shaker:ShakerController
 
 main:
@@ -20,4 +20,4 @@ main:
           - operator: "<="
             expected_value: 15.51
     ui:
-      panel: panels/random.html
+      panel: panels/vibration.html

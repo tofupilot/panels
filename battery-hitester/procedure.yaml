@@ -1,0 +1,23 @@
+name: Battery HiTester
+version: 1.0.0
+
+plugs:
+  - key: meter
+    name: Battery HiTester
+    python: plugs.hitester:BatteryHiTester
+
+main:
+  - key: acir
+    name: Measure through the cycle
+    python: phases.battery_hitester:measure
+    measurements:
+      - key: acir
+        name: AC internal resistance at rest
+        unit: "mΩ"
+        validators:
+          - operator: ">="
+            expected_value: 8.0
+          - operator: "<="
+            expected_value: 12.0
+    ui:
+      panel: panels/hitester.html

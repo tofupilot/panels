@@ -1,32 +1,36 @@
-"""Mock shaker controller: replays a random vibration run at -12, -6, -3 dB
-and full level, one control Grms reading per call. Full level is 14.1 Grms,
-the GEVS component example. Replace it with your vibration controller's
-driver on a real bench."""
+"""Mock vibration controller: random vibration at -12, -6, -3 dB and full
+level of the GEVS component profile (14.1 Grms at full level). Replace it with
+your controller's driver."""
 import math
+import random
 
-FULL_LEVEL_GRMS = 14.1
-LEVELS = [(-12, 35), (-6, 35), (-3, 40), (0, 70), (None, 20)]
+BINS = 36
+FREQS = [20 * 100 ** (k / (BINS - 1)) for k in range(BINS)]
+LEVELS = [(-12, 40), (-6, 40), (-3, 40), (0, 60), (None, 20)]
+
+
+def reference(f):
+    """GEVS component profile, g²/Hz at full level: +6 dB/oct to 50 Hz,
+    0.16 to 800 Hz, -6 dB/oct to 2000 Hz."""
+    return 0.16 * (f / 50) ** 2 if f < 50 else 0.16 if f <= 800 else 0.16 * (800 / f) ** 2
 
 
 class ShakerController:
     def __init__(self):
-        self.samples = []
-        for level, steps in LEVELS:
-            for i in range(steps):
-                if level is None:
-                    self.samples.append((None, 0.0, max(0.0, 1.2 * (1 - (i + 1) / 6))))
-                    continue
-                reference = FULL_LEVEL_GRMS * 10 ** (level / 20)
-                settle = 1 - math.exp(-(i + 1) / 3)
-                noise = 0.03 * math.sin(len(self.samples) * 2.1) + 0.02 * math.sin(len(self.samples) * 5.3)
-                self.samples.append((level, reference, reference * settle * (1 + noise)))
-        self.index = 0
+        self.rng = random.Random(3)
+        self.schedule = [level for level, n in LEVELS for _ in range(n)]
+        self.k = 0
 
     def length(self):
-        return len(self.samples)
+        return len(self.schedule)
 
     def read(self):
-        """[level in dB or None when stopped, reference Grms, control Grms]"""
-        sample = self.samples[min(self.index, len(self.samples) - 1)]
-        self.index += 1
-        return list(sample)
+        """[level in dB or None when stopped, control ASD in g²/Hz per bin, control Grms]"""
+        level = self.schedule[min(self.k, len(self.schedule) - 1)]
+        self.k += 1
+        if level is None:
+            return [None, [], 0.0]
+        gain = 10 ** (level / 10)
+        asd = [reference(f) * gain * 10 ** ((self.rng.gauss(0, 0.9) + (1.1 if f > 1400 else 0)) / 10) for f in FREQS]
+        grms = math.sqrt(sum((asd[k] + asd[k + 1]) / 2 * (FREQS[k + 1] - FREQS[k]) for k in range(BINS - 1)))
+        return [level, asd, grms]

@@ -1,0 +1,21 @@
+name: Temperature Scanner
+version: 1.0.0
+
+plugs:
+  - key: scanner
+    name: Temperature scanner
+    python: plugs.scanner:TemperatureScanner
+
+main:
+  - key: scan
+    name: Charge and discharge
+    python: phases.temperature_scanner:scan
+    measurements:
+      - key: max_temperature
+        name: Highest temperature
+        unit: "°C"
+        validators:
+          - operator: "<="
+            expected_value: 60
+    ui:
+      panel: panels/scanner.html

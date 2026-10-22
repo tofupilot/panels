@@ -108,6 +108,96 @@
     ]
   },
   {
+    "slug": "tvac-pressure",
+    "title": "TVAC Chamber Pressure",
+    "description": "Thermal vacuum chamber pressure on a log scale from atmosphere to high vacuum, with the 1.33 × 10⁻³ Pa test vacuum line.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "Log scale",
+      "Test vacuum"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/pressure.html",
+      "phases/tvac_pressure.py",
+      "plugs/vacuum_gauge.py"
+    ]
+  },
+  {
+    "slug": "tvac-cycle",
+    "title": "TVAC Thermal Cycle",
+    "description": "A thermal vacuum cycle: the baseplate temperature against the cold and hot plateau setpoints, with the ±2 °C tolerance band and the dwell time.",
+    "category": "bars",
+    "industry": "aerospace",
+    "tags": [
+      "Setpoint band",
+      "Dwell"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/cycle.html",
+      "phases/tvac_cycle.py",
+      "plugs/thermal_controller.py"
+    ]
+  },
+  {
+    "slug": "random-vibration",
+    "title": "Random Vibration",
+    "description": "A random vibration run stepping −12, −6, −3 dB to full level, with the control Grms against the reference and its ±10 % tolerance band.",
+    "category": "bars",
+    "industry": "aerospace",
+    "tags": [
+      "Level steps",
+      "Tolerance band"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/random.html",
+      "phases/random_vibration.py",
+      "plugs/shaker.py"
+    ]
+  },
+  {
+    "slug": "power-bus",
+    "title": "Spacecraft Power Bus",
+    "description": "The 28 V bus feeding a unit under test, against its 22 to 36 V input range, with the current drawn and the inrush at switch-on.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "Tape",
+      "Inrush"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/bus.html",
+      "phases/power_bus.py",
+      "plugs/power_supply.py"
+    ]
+  },
+  {
+    "slug": "rf-link",
+    "title": "RF Link Acquisition",
+    "description": "Downlink acquisition on the RF checkout equipment: carrier, bit sync and frame sync locks in order, and Eb/N0 against the 9.6 dB BPSK threshold.",
+    "category": "indicators",
+    "industry": "aerospace",
+    "tags": [
+      "Lock lights",
+      "Eb/N0"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/link.html",
+      "phases/rf_link.py",
+      "plugs/rf_scoe.py"
+    ]
+  },
+  {
     "slug": "battery-soc",
     "title": "State of Charge",
     "description": "The pack's state of charge as a battery outline that fills with the live SOC, with the cycler step next to it.",

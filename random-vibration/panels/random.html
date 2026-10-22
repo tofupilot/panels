@@ -1,0 +1,59 @@
+<div class="inst" data-bind="ui.vibe_state">
+  <div class="top"><span class="label">Control Grms</span><span class="aux">REF <em data-bind="ui.reference" data-format="0.00">0.00</em></span></div>
+  <div class="value"><b data-bind="ui.grms" data-format="0.00">0.00</b><span>Grms</span></div>
+  <div class="steps" data-bind="ui.level">
+    <i class="s12">−12 dB</i><i class="s6">−6 dB</i><i class="s3">−3 dB</i><i class="s0">FULL</i>
+  </div>
+  <div class="tape">
+    <span class="band-wrap" data-bind="ui.reference"><i class="band"></i></span>
+    <span class="band-wrap" data-bind="ui.grms"><i class="fill" style="width: calc(clamp(0, var(--value, 0), 20) / 20 * 100%)"></i></span>
+  </div>
+  <div class="scale"><span style="left: 0.000%">0</span><span style="left: 25.000%">5</span><span style="left: 50.000%">10</span><span style="left: 75.000%">15</span><span style="left: 100.000%">20</span></div>
+</div>
+<style>
+  .inst {
+    --live: #4aa8ff;
+    width: min(520px, 100%); margin: 0 auto; display: grid; gap: 14px;
+    padding: 18px 20px 20px; border-radius: 14px; border: 1px solid #1f252b;
+    background: #0d1014; color: #f2f4f6; font-family: system-ui, sans-serif;
+  }
+  .inst[data-value=warn] { --live: #f2c230; }
+  .inst[data-value=alarm] { --live: #e5383b; }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .label { font: 600 10px system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #7d8791; }
+  .aux { font: 500 11px ui-monospace, Menlo, monospace; color: #7d8791; font-variant-numeric: tabular-nums; }
+  .value { display: flex; align-items: baseline; gap: 6px; }
+  .value b { font: 600 32px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; transition: color .2s; }
+  .value span { font: 600 11px system-ui, sans-serif; letter-spacing: .12em; color: #7d8791; }
+  .inst[data-value=warn] .value b { color: #f2c230; }
+  .inst[data-value=alarm] .value b { color: #ff8a84; }
+  .scale { position: relative; height: 14px; font: 500 11px "Barlow Condensed", "Arial Narrow", sans-serif; color: #7d8791; }
+  .scale span { position: absolute; top: 0; transform: translateX(-50%); }
+  .scale span:first-child { transform: none; }
+  .scale span:last-child { transform: translateX(-100%); }
+  .tape { position: relative; height: 22px; }
+  .tape::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 2px; background: #22282f; }
+  .tape i { position: absolute; display: block; }
+  .fill { left: 0; top: 9px; height: 4px; border-radius: 2px; background: var(--live); transition: width .2s linear, background-color .2s; }
+  .mark { top: 4px; width: 2px; height: 14px; margin-left: -1px; z-index: 1; }
+  .red { background: #e5383b; }
+  .cyan { background: #22d3ee; }
+  .amber { background: #f2c230; }
+  .aux em { font-style: normal; }
+  .band-wrap { position: absolute; inset: 0; }
+  /* ±10 % of the reference on a 0–20 Grms tape. */
+  .band {
+    top: 2px; height: 18px; border-radius: 3px; background: rgba(34, 211, 238, .18);
+    left: calc(var(--value, 0) * 0.9 / 20 * 100%); width: calc(var(--value, 0) * 0.2 / 20 * 100%);
+    transition: left .3s, width .3s;
+  }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .steps i {
+    font: 600 10px ui-monospace, Menlo, monospace; font-style: normal; letter-spacing: .06em; text-align: center;
+    padding: 5px 0; border-radius: 6px; background: #1a1f25; color: #4b545d; transition: background-color .2s, color .2s;
+  }
+  .steps[data-value="-12"] .s12,
+  .steps[data-value="-6"] :is(.s12, .s6),
+  .steps[data-value="-3"] :is(.s12, .s6, .s3),
+  .steps[data-value="0"] :is(.s12, .s6, .s3, .s0) { background: #16324d; color: #9ccfff; }
+</style>

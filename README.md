@@ -12,6 +12,11 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 | [Turn Coordinator](turn-coordinator) | An aircraft that banks with the turn rate, and a slip ball |
 | [Heading Indicator](heading) | A compass card that turns under the lubber line, with a heading bug |
 | [Vertical Speed Indicator](vertical-speed) | An arc that fills up in a climb, down in a descent, red past a sink limit |
+| [TVAC Chamber Pressure](tvac-pressure) | Chamber pressure on a log scale, with the test vacuum line |
+| [TVAC Thermal Cycle](tvac-cycle) | Baseplate temperature against the plateau setpoints and ±2 °C band |
+| [Random Vibration](random-vibration) | Control Grms against the reference, stepping up to full level |
+| [Spacecraft Power Bus](power-bus) | The 28 V bus against the unit's input range, with the current drawn |
+| [RF Link Acquisition](rf-link) | Carrier, bit sync and frame sync locks, and Eb/N0 against threshold |
 | [State of Charge](battery-soc) | A battery outline that fills with the live SOC |
 | [Pack Current](battery-current) | A center-zero current tape with charge and discharge limits |
 | [Max Temperature](battery-temperature) | Eight thermistors on one scale, limits that follow the mode |

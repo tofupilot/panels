@@ -1,0 +1,23 @@
+name: Random Vibration
+version: 1.0.0
+
+plugs:
+  - key: shaker
+    name: Shaker controller
+    python: plugs.shaker:ShakerController
+
+main:
+  - key: random
+    name: Random vibration
+    python: phases.random_vibration:random_vibration
+    measurements:
+      - key: full_level_grms
+        name: Control Grms at full level
+        unit: "g"
+        validators:
+          - operator: ">="
+            expected_value: 12.69
+          - operator: "<="
+            expected_value: 15.51
+    ui:
+      panel: panels/random.html

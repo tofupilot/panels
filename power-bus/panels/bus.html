@@ -1,0 +1,42 @@
+<div class="inst" data-bind="ui.bus_state">
+  <div class="top"><span class="label">28 V bus</span><span class="aux"><em data-bind="ui.amps" data-format="0.00">0.00</em> A</span></div>
+  <div class="value"><b data-bind="ui.bus" data-format="0.00">0.00</b><span>V</span></div>
+  <div class="tape" data-bind="ui.bus">
+    <i class="mark red" style="left: 10.000%"></i>
+    <i class="mark red" style="left: 80.000%"></i>
+    <i class="mark cyan" style="left: 40.000%"></i>
+    <i class="fill" style="width: calc((clamp(20, var(--value, 20), 40) - 20) / 20 * 100%)"></i>
+  </div>
+  <div class="scale"><span style="left: 0.000%">20</span><span style="left: 20.000%">24</span><span style="left: 40.000%">28</span><span style="left: 60.000%">32</span><span style="left: 80.000%">36</span><span style="left: 100.000%">40</span></div>
+</div>
+<style>
+  .inst {
+    --live: #4aa8ff;
+    width: min(520px, 100%); margin: 0 auto; display: grid; gap: 14px;
+    padding: 18px 20px 20px; border-radius: 14px; border: 1px solid #1f252b;
+    background: #0d1014; color: #f2f4f6; font-family: system-ui, sans-serif;
+  }
+  .inst[data-value=warn] { --live: #f2c230; }
+  .inst[data-value=alarm] { --live: #e5383b; }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .label { font: 600 10px system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #7d8791; }
+  .aux { font: 500 11px ui-monospace, Menlo, monospace; color: #7d8791; font-variant-numeric: tabular-nums; }
+  .value { display: flex; align-items: baseline; gap: 6px; }
+  .value b { font: 600 32px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; transition: color .2s; }
+  .value span { font: 600 11px system-ui, sans-serif; letter-spacing: .12em; color: #7d8791; }
+  .inst[data-value=warn] .value b { color: #f2c230; }
+  .inst[data-value=alarm] .value b { color: #ff8a84; }
+  .scale { position: relative; height: 14px; font: 500 11px "Barlow Condensed", "Arial Narrow", sans-serif; color: #7d8791; }
+  .scale span { position: absolute; top: 0; transform: translateX(-50%); }
+  .scale span:first-child { transform: none; }
+  .scale span:last-child { transform: translateX(-100%); }
+  .tape { position: relative; height: 22px; }
+  .tape::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 2px; background: #22282f; }
+  .tape i { position: absolute; display: block; }
+  .fill { left: 0; top: 9px; height: 4px; border-radius: 2px; background: var(--live); transition: width .2s linear, background-color .2s; }
+  .mark { top: 4px; width: 2px; height: 14px; margin-left: -1px; z-index: 1; }
+  .red { background: #e5383b; }
+  .cyan { background: #22d3ee; }
+  .amber { background: #f2c230; }
+  .aux em { font-style: normal; color: #c9cfd5; }
+</style>

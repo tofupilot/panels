@@ -1,0 +1,29 @@
+name: Spacecraft Power Bus
+version: 1.0.0
+
+plugs:
+  - key: supply
+    name: Bus power supply
+    python: plugs.power_supply:PowerSupply
+
+main:
+  - key: power
+    name: Power on
+    python: phases.power_bus:power_on
+    measurements:
+      - key: bus_voltage
+        name: Lowest bus voltage under load
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 22
+          - operator: "<="
+            expected_value: 36
+      - key: steady_current
+        name: Steady-state current
+        unit: "A"
+        validators:
+          - operator: "<="
+            expected_value: 1.5
+    ui:
+      panel: panels/bus.html

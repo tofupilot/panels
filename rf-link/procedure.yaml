@@ -1,0 +1,21 @@
+name: RF Link Acquisition
+version: 1.0.0
+
+plugs:
+  - key: scoe
+    name: RF checkout equipment
+    python: plugs.rf_scoe:RfScoe
+
+main:
+  - key: acquire
+    name: Acquire downlink
+    python: phases.rf_link:acquire_downlink
+    measurements:
+      - key: eb_n0
+        name: Eb/N0 with frame sync
+        unit: "dB"
+        validators:
+          - operator: ">="
+            expected_value: 9.6
+    ui:
+      panel: panels/link.html

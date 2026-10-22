@@ -1,52 +1,58 @@
-<div class="asi">
-  <svg viewBox="0 0 286 224" role="img" aria-label="Airspeed indicator">
-    <rect x="43" y="12" width="200" height="200" rx="18" fill="#1b1f24"/>
-    <circle cx="54" cy="23" r="4" fill="#4a525b"/><circle cx="232" cy="23" r="4" fill="#4a525b"/>
-    <circle cx="54" cy="201" r="4" fill="#4a525b"/><circle cx="232" cy="201" r="4" fill="#4a525b"/>
-    <circle cx="143" cy="112" r="94" fill="#2a3037"/>
-    <circle cx="143" cy="112" r="90" fill="#0c0e10"/>
-    <path d="M104.0 179.5A78 78 0 0 1 69.7 85.3" fill="none" stroke="#f2f4f6" stroke-width="5"/>
-    <path d="M87.7 177.9A86 86 0 0 1 172.4 31.2" fill="none" stroke="#2fbf6a" stroke-width="6"/>
-    <path d="M172.4 31.2A86 86 0 0 1 228.8 106.0" fill="none" stroke="#f2c230" stroke-width="6"/>
-    <path d="M102.0 183.0L98.5 189.1M90.3 174.8L85.8 180.2M80.2 164.7L74.8 169.2M65.9 140.0L59.4 142.4M62.2 126.2L55.4 127.5M61.0 112.0L54.0 112.0M65.9 84.0L59.4 81.6M72.0 71.0L65.9 67.5M80.2 59.3L74.8 54.8M102.0 41.0L98.5 34.9M115.0 34.9L112.6 28.4M128.8 31.2L127.5 24.4M157.2 31.2L158.5 24.4M171.0 34.9L173.4 28.4M184.0 41.0L187.5 34.9M205.8 59.3L211.2 54.8M214.0 71.0L220.1 67.5M220.1 84.0L226.6 81.6M225.0 112.0L232.0 112.0M223.8 126.2L230.6 127.5M220.1 140.0L226.6 142.4M205.8 164.7L211.2 169.2M195.7 174.8L200.2 180.2M184.0 183.0L187.5 189.1" stroke="#f2f4f6" stroke-width="1"/>
-    <path d="M117.7 181.5L112.6 195.6M78.9 149.0L65.9 156.5M70.1 99.2L55.4 96.5M95.4 55.3L85.8 43.8M143.0 38.0L143.0 23.0M190.6 55.3L200.2 43.8M215.9 99.2L230.6 96.5M207.1 149.0L220.1 156.5M168.3 181.5L173.4 195.6" stroke="#f2f4f6" stroke-width="2.2"/>
-    <path d="M216.8 106.8L232.8 105.7" stroke="#e5383b" stroke-width="3.5"/>
-    <text x="121.8" y="176.3" class="num">40</text><text x="89.3" y="149.0" class="num">60</text><text x="81.9" y="107.2" class="num">80</text><text x="103.1" y="70.5" class="num">100</text><text x="143.0" y="56.0" class="num">120</text><text x="182.9" y="70.5" class="num">140</text><text x="204.1" y="107.2" class="num">160</text><text x="196.7" y="149.0" class="num">180</text><text x="164.2" y="176.3" class="num">200</text>
-    <text x="143" y="92" class="cap">AIRSPEED</text>
-    <text x="143" y="146" class="cap">KNOTS</text>
-    <g class="needle" data-bind="ui.ias">
-      <path d="M140 124L143 26L146 124z"/>
-    </g>
-    <circle cx="143" cy="112" r="7" fill="#3a424b"/>
-  </svg>
-  <div class="readout">
-    <span class="value" data-bind="ui.ias" data-format="0">0</span>
-    <span class="unit">kt</span>
-    <span class="verdict" data-bind="ui.overspeed"></span>
+<div class="asi" data-bind="ui.overspeed">
+  <div class="dial">
+    <svg viewBox="38 7 210 210" role="img" aria-label="Airspeed indicator">
+      <rect x="43" y="12" width="200" height="200" rx="18" fill="#1b1f24"/>
+      <circle cx="54" cy="23" r="4" fill="#4a525b"/><circle cx="232" cy="23" r="4" fill="#4a525b"/>
+      <circle cx="54" cy="201" r="4" fill="#4a525b"/><circle cx="232" cy="201" r="4" fill="#4a525b"/>
+      <circle cx="143" cy="112" r="94" fill="#2a3037"/>
+      <circle cx="143" cy="112" r="90" fill="#0c0e10"/>
+      <path d="M87.7 177.9A86 86 0 0 1 172.4 31.2" fill="none" stroke="#2fbf6a" stroke-width="6"/>
+      <path d="M172.4 31.2A86 86 0 0 1 228.8 106.0" fill="none" stroke="#f2c230" stroke-width="6"/>
+      <path d="M102.0 183.0L98.5 189.1M90.3 174.8L85.8 180.2M80.2 164.7L74.8 169.2M65.9 140.0L59.4 142.4M62.2 126.2L55.4 127.5M61.0 112.0L54.0 112.0M65.9 84.0L59.4 81.6M72.0 71.0L65.9 67.5M80.2 59.3L74.8 54.8M102.0 41.0L98.5 34.9M115.0 34.9L112.6 28.4M128.8 31.2L127.5 24.4M157.2 31.2L158.5 24.4M171.0 34.9L173.4 28.4M184.0 41.0L187.5 34.9M205.8 59.3L211.2 54.8M214.0 71.0L220.1 67.5M220.1 84.0L226.6 81.6M225.0 112.0L232.0 112.0M223.8 126.2L230.6 127.5M220.1 140.0L226.6 142.4M205.8 164.7L211.2 169.2M195.7 174.8L200.2 180.2M184.0 183.0L187.5 189.1" stroke="#f2f4f6" stroke-width="1"/>
+      <path d="M117.7 181.5L112.6 195.6M78.9 149.0L65.9 156.5M70.1 99.2L55.4 96.5M95.4 55.3L85.8 43.8M143.0 38.0L143.0 23.0M190.6 55.3L200.2 43.8M215.9 99.2L230.6 96.5M207.1 149.0L220.1 156.5M168.3 181.5L173.4 195.6" stroke="#f2f4f6" stroke-width="2.2"/>
+      <path d="M216.8 106.8L232.8 105.7" stroke="#e5383b" stroke-width="3.5"/>
+      <text x="121.8" y="176.3" class="num">40</text><text x="89.3" y="149.0" class="num">60</text><text x="81.9" y="107.2" class="num">80</text><text x="103.1" y="70.5" class="num">100</text><text x="143.0" y="56.0" class="num">120</text><text x="182.9" y="70.5" class="num">140</text><text x="204.1" y="107.2" class="num">160</text><text x="196.7" y="149.0" class="num">180</text><text x="164.2" y="176.3" class="num">200</text>
+      <g class="sweep" data-bind="ui.ias">
+        <path class="track" d="M128.6 151.5A42 42 0 1 1 157.4 151.5" pathLength="100"/>
+        <path class="arc" d="M128.6 151.5A42 42 0 1 1 157.4 151.5" pathLength="100"/>
+        <circle class="tip" cx="143" cy="70" r="4.5"/>
+      </g>
+    </svg>
+    <div class="value">
+      <b data-bind="ui.ias" data-format="0">0</b>
+      <span>KT</span>
+    </div>
   </div>
-  <p class="status" data-bind="ui.status"></p>
-  <button name="tare">Zero pitot</button>
 </div>
 <style>
-  .asi { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 16px; }
-  .asi svg { width: min(400px, 90vw); height: auto; }
+  .asi { display: flex; justify-content: center; padding: 0 16px; }
+  .dial { position: relative; width: min(360px, 90vw); }
+  .dial svg { display: block; width: 100%; height: auto; }
   .num { font: 700 15px "Barlow Condensed", "Arial Narrow", sans-serif; fill: #f2f4f6; text-anchor: middle; }
-  .cap { font: 600 9px system-ui, sans-serif; fill: #c9cfd5; text-anchor: middle; letter-spacing: .08em; }
-  .needle {
+  .track, .arc { fill: none; stroke-width: 7; stroke-linecap: round; }
+  .track { stroke: #22282f; }
+  /* The sweep fills from 40 kt, the bottom of the scale, to the reading. */
+  .arc {
+    stroke: #4aa8ff;
+    stroke-dasharray: calc((clamp(40, var(--value, 40), 200) - 40) / 160 * 100) 200;
+    transition: stroke-dasharray .12s linear, stroke .2s;
+  }
+  .tip {
     fill: #f2f4f6;
     transform-box: view-box;
     transform-origin: 143px 112px;
-    transform: rotate(calc(var(--value, 40) * 2deg - 240deg));
+    transform: rotate(calc((clamp(40, var(--value, 40), 200) - 120) * 2deg));
     transition: transform .12s linear, fill .2s;
   }
-  .asi:has(.verdict[data-value=true]) .needle { fill: #e5383b; }
-  .readout { display: flex; align-items: baseline; gap: 10px; font-family: ui-monospace, Menlo, monospace; }
-  .value { font-size: 44px; font-variant-numeric: tabular-nums; }
-  .unit { font-size: 18px; opacity: .7; }
-  .verdict { font-size: 13px; padding: 2px 10px; border-radius: 999px; background: #dcefe3; color: #1e7a48; }
-  .verdict[data-value=false] { visibility: hidden; }
-  .verdict[data-value=true] { background: #fde2e1; color: #b22a26; font-size: 0; }
-  .verdict[data-value=true]::after { content: "OVERSPEED"; font-size: 13px; }
-  button { font: 600 14px system-ui; padding: 8px 18px; border-radius: 8px; border: 1px solid #3a424b; background: #1b1f24; color: #f2f4f6; }
-  .status { margin: 0; font-size: 16px; opacity: .8; }
+  .value {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    pointer-events: none;
+  }
+  .value b { font: 600 30px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; color: #f2f4f6; transition: color .2s; }
+  .value span { font: 600 10px system-ui, sans-serif; letter-spacing: .12em; color: #8a949e; }
+  /* Past the red line the sweep, its tip and the reading turn red. */
+  .asi[data-value=true] .arc { stroke: #e5383b; }
+  .asi[data-value=true] .tip { fill: #e5383b; }
+  .asi[data-value=true] .value b { color: #ff8a84; }
 </style>

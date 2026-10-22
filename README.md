@@ -6,7 +6,7 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 
 | Example | Shows |
 |---|---|
-| [Airspeed Indicator](airspeed) | An SVG gauge with a needle on a live value, a red line, a button read by Python |
+| [Airspeed Indicator](airspeed) | An SVG arc that sweeps with a live value and turns red past a red line |
 | [Battery Pack Charge](battery-charge) | State of charge, bars for eight cells, measurement results colored by their limits |
 | [Power Rails Fixture](power-rails) | A board drawing whose test points light up with each rail's result |
 | [Motor Spin Test](motor-spin) | Arc gauges and setpoint lights driven by CSS variables |

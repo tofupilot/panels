@@ -2,12 +2,12 @@
   {
     "slug": "airspeed",
     "title": "Airspeed Indicator",
-    "description": "An aircraft airspeed indicator with colored arcs and a red line. The needle follows a live reading and turns red on overspeed.",
+    "description": "An aircraft airspeed indicator: an arc sweeps over the speed bands with the live reading and turns red past the red line.",
     "category": "gauges",
     "industry": "aerospace",
     "tags": [
-      "SVG needle",
-      "Button"
+      "SVG arc",
+      "Red line"
     ],
     "cli": "2.8.0",
     "files": [

@@ -1,0 +1,48 @@
+<div class="inst" data-bind="ui.current_state">
+  <div class="top"><span class="label">Pack current</span><span class="aux" data-bind="ui.direction">—</span></div>
+  <div class="value"><b data-bind="ui.current" data-format="0.0">0.0</b><span>A</span></div>
+  <div class="tape" data-bind="ui.current">
+    <i class="zero"></i><i class="limit low"></i><i class="limit high"></i>
+    <i class="fill charge"></i><i class="fill discharge"></i><i class="pointer"></i>
+  </div>
+  <div class="scale"><span style="left: 0.000%">−100</span><span style="left: 50.000%">0</span><span style="left: 100.000%">+100</span></div>
+</div>
+<style>
+  .inst {
+    --live: #4aa8ff;
+    width: min(520px, 100%); margin: 0 auto; display: grid; gap: 14px;
+    padding: 18px 20px 20px; border-radius: 14px; border: 1px solid #1f252b;
+    background: #0d1014; color: #f2f4f6; font-family: system-ui, sans-serif;
+  }
+  .inst[data-value=warn] { --live: #f2c230; }
+  .inst[data-value=alarm] { --live: #e5383b; }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .label { font: 600 10px system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #7d8791; }
+  .aux { font: 500 11px ui-monospace, Menlo, monospace; color: #7d8791; font-variant-numeric: tabular-nums; }
+  .value { display: flex; align-items: baseline; gap: 6px; }
+  .value b { font: 600 32px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; transition: color .2s; }
+  .value span { font: 600 11px system-ui, sans-serif; letter-spacing: .12em; color: #7d8791; }
+  .inst[data-value=warn] .value b { color: #f2c230; }
+  .inst[data-value=alarm] .value b { color: #ff8a84; }
+  .scale { position: relative; height: 14px; font: 500 11px "Barlow Condensed", "Arial Narrow", sans-serif; color: #7d8791; }
+  .scale span { position: absolute; top: 0; transform: translateX(-50%); }
+  .scale span:first-child { transform: none; }
+  .scale span:last-child { transform: translateX(-100%); }
+  /* Center zero: charge fills right, discharge fills left. */
+  .tape { position: relative; height: 22px; }
+  .tape::before { content: ""; position: absolute; left: 0; right: 0; top: 13px; height: 2px; background: #2a3037; }
+  .tape i { position: absolute; display: block; }
+  .zero { left: 50%; top: 7px; width: 2px; height: 14px; margin-left: -1px; background: #2a3037; }
+  .limit { top: 8px; width: 2px; height: 12px; margin-left: -1px; background: #e5383b; }
+  .low { left: 7.5%; }   /* −85 A discharge limit */
+  .high { left: 80%; }   /* +60 A charge limit */
+  .fill { top: 12px; height: 4px; border-radius: 2px; background: var(--live); transition: width .2s linear, background-color .2s; }
+  .charge { left: 50%; width: calc(clamp(0, var(--value, 0), 100) / 100 * 50%); }
+  .discharge { right: 50%; width: calc(clamp(0, var(--value, 0) * -1, 100) / 100 * 50%); }
+  .pointer {
+    top: 0; width: 0; height: 0; margin-left: -5px;
+    border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid var(--live);
+    left: calc((clamp(-100, var(--value, 0), 100) + 100) / 200 * 100%);
+    transition: left .2s linear, border-top-color .2s;
+  }
+</style>

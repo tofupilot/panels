@@ -1,0 +1,21 @@
+name: Cell Voltage Balance
+version: 1.0.0
+
+plugs:
+  - key: cycler
+    name: Battery cycler
+    python: plugs.cycler:BatteryCycler
+
+main:
+  - key: cells
+    name: Charge and discharge
+    python: phases.cells:charge_and_discharge
+    measurements:
+      - key: max_cell_delta
+        name: Largest cell voltage spread
+        unit: "mV"
+        validators:
+          - operator: "<="
+            expected_value: 100
+    ui:
+      panel: panels/cells.html

@@ -106,5 +106,95 @@
       "phases/vertical_speed.py",
       "plugs/pitot_static.py"
     ]
+  },
+  {
+    "slug": "battery-soc",
+    "title": "State of Charge",
+    "description": "The pack's state of charge as a battery outline that fills with the live SOC, with the cycler step next to it.",
+    "category": "bars",
+    "industry": "batteries",
+    "tags": [
+      "Battery outline",
+      "SOC thresholds"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/soc.html",
+      "phases/soc.py",
+      "plugs/cycler.py"
+    ]
+  },
+  {
+    "slug": "battery-current",
+    "title": "Pack Current",
+    "description": "Pack current on a center-zero tape: charge fills right, discharge fills left, red past the charge and discharge limits.",
+    "category": "gauges",
+    "industry": "batteries",
+    "tags": [
+      "Center-zero tape",
+      "Limit marks"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/current.html",
+      "phases/current.py",
+      "plugs/cycler.py"
+    ]
+  },
+  {
+    "slug": "battery-temperature",
+    "title": "Max Temperature",
+    "description": "Eight thermistors as dots on one temperature scale, with the hottest one named and limits that follow charge or discharge.",
+    "category": "indicators",
+    "industry": "batteries",
+    "tags": [
+      "Dot plot",
+      "Mode limits"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/temperature.html",
+      "phases/temperature.py",
+      "plugs/cycler.py"
+    ]
+  },
+  {
+    "slug": "cell-balance",
+    "title": "Cell Voltage Balance",
+    "description": "Each of 13 cells as its deviation from the pack mean in mV, with balancing lights and the spread against its limits.",
+    "category": "bars",
+    "industry": "batteries",
+    "tags": [
+      "Deviation bars",
+      "Balancing"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/cells.html",
+      "phases/cells.py",
+      "plugs/cycler.py"
+    ]
+  },
+  {
+    "slug": "battery-voltage",
+    "title": "Pack Voltage",
+    "description": "Pack voltage on a tape against the CV setpoint, red past the undervoltage and overvoltage limits.",
+    "category": "gauges",
+    "industry": "batteries",
+    "tags": [
+      "Tape",
+      "Setpoint mark"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/voltage.html",
+      "phases/voltage.py",
+      "plugs/cycler.py"
+    ]
   }
 ]

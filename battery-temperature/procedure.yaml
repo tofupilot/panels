@@ -1,0 +1,21 @@
+name: Max Temperature
+version: 1.0.0
+
+plugs:
+  - key: cycler
+    name: Battery cycler
+    python: plugs.cycler:BatteryCycler
+
+main:
+  - key: temperature
+    name: Charge and discharge
+    python: phases.temperature:charge_and_discharge
+    measurements:
+      - key: max_temperature
+        name: Highest temperature
+        unit: "°C"
+        validators:
+          - operator: "<="
+            expected_value: 60
+    ui:
+      panel: panels/temperature.html

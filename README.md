@@ -12,6 +12,11 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 | [Turn Coordinator](turn-coordinator) | An aircraft that banks with the turn rate, and a slip ball |
 | [Heading Indicator](heading) | A compass card that turns under the lubber line, with a heading bug |
 | [Vertical Speed Indicator](vertical-speed) | An arc that fills up in a climb, down in a descent, red past a sink limit |
+| [State of Charge](battery-soc) | A battery outline that fills with the live SOC |
+| [Pack Current](battery-current) | A center-zero current tape with charge and discharge limits |
+| [Max Temperature](battery-temperature) | Eight thermistors on one scale, limits that follow the mode |
+| [Cell Voltage Balance](cell-balance) | Thirteen cells as deviation from the mean, with balancing lights |
+| [Pack Voltage](battery-voltage) | A pack voltage tape with the CV setpoint and UV/OV limits |
 
 ## Run an Example
 

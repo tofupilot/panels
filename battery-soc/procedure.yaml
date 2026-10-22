@@ -1,0 +1,23 @@
+name: State of Charge
+version: 1.0.0
+
+plugs:
+  - key: cycler
+    name: Battery cycler
+    python: plugs.cycler:BatteryCycler
+
+main:
+  - key: soc
+    name: Charge and discharge
+    python: phases.soc:charge_and_discharge
+    measurements:
+      - key: soc_end_of_charge
+        name: SOC at the end of the charge
+        unit: "%"
+        validators:
+          - operator: ">="
+            expected_value: 95
+          - operator: "<="
+            expected_value: 100
+    ui:
+      panel: panels/soc.html

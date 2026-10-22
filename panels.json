@@ -3,6 +3,7 @@
     "slug": "airspeed",
     "title": "Airspeed Indicator",
     "description": "An aircraft airspeed indicator with colored arcs and a red line. The needle follows a live reading and turns red on overspeed.",
+    "about": "`ui.ias`, a value only the panel shows, drives the needle through `--value`. `ui.overspeed` flips the needle red with `:has()`. **Zero pitot** is a `<button name=\"tare\">` the phase reads with `ui.pressed(\"tare\")`.",
     "category": "gauges",
     "industry": "aerospace",
     "tags": [
@@ -21,6 +22,7 @@
     "slug": "battery-charge",
     "title": "Battery Pack Charge",
     "description": "State of charge, current, temperature and all eight cells live while a LiFePO4 pack charges and balances.",
+    "about": "The pack's state of charge fills the battery shape with `height: calc(var(--value) * 1%)`. Each cell is a bar on `ui.cell_N`. The three results at the bottom bind measurements, so they turn green or red with `data-outcome` once recorded.",
     "category": "bars",
     "industry": "batteries",
     "tags": [
@@ -39,6 +41,7 @@
     "slug": "power-rails",
     "title": "Power Rails Fixture",
     "description": "A board drawing whose test points light up as the probe moves, each turning green or red with its rail's result.",
+    "about": "`ui.probe` names the test point under the probe, and the board's `data-value` rings it. Each rail is a measurement recorded as soon as it settles, so its pad turns green or red with `data-outcome` on the drawing.",
     "category": "synoptics",
     "industry": "electronics",
     "tags": [
@@ -57,6 +60,7 @@
     "slug": "motor-spin",
     "title": "Motor Spin Test",
     "description": "Speed and current arc gauges for a drone motor and ESC, with each throttle setpoint lit as the sweep reaches it.",
+    "about": "The arc gauges are SVG paths with `pathLength=\"100\"` and a `stroke-dasharray` computed from `--value`. Each setpoint lights with `opacity: clamp(.18, var(--value) - var(--n) + 1, 1)`, with no JavaScript.",
     "category": "gauges",
     "industry": "motors",
     "tags": [
@@ -75,6 +79,7 @@
     "slug": "fan-test",
     "title": "Cooling Fan Test",
     "description": "Fan blades and airflow lines on looping CSS animations that start and stop with the run, next to live speed and airflow readings.",
+    "about": "The blades and the airflow lines loop on fixed `@keyframes`, declared `paused`. The phase sets `ui.running = True`, and the panel's root, bound with `data-bind=\"ui.running\"`, switches them to `animation-play-state: running` with `[data-value=true]`. The phase never drives the motion: it only sends the readings and records the measurements.\n\nThe keyframes carry the example's name (`fan-test-spin`, `fan-test-flow`, `fan-test-blink`), so they stay distinct when you copy them into a panel of your own. Readers who prefer reduced motion see the panel still.",
     "category": "animation",
     "industry": "industrial-equipment",
     "tags": [

@@ -62,7 +62,8 @@
   .value { font: 600 34px ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; color: #7cc4ff; }
   .unit { font-style: normal; font-size: 16px; margin-left: 6px; color: #8a949e; }
   .unit::after { content: "V"; }
-  .fixture[data-value=shunt] .unit::after { content: "mA"; }
+  .fixture[data-value=shunt] .unit::after,
+  .fixture[data-value=done] .unit::after { content: "mA"; }
   .results { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
   .results li {
     display: flex; justify-content: space-between; padding: 8px 12px; border-radius: 8px;

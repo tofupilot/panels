@@ -1,6 +1,11 @@
 name: Cooling Fan Test
 version: 1.0.0
 
+plugs:
+  - key: bench
+    name: Airflow bench
+    python: plugs.bench:AirflowBench
+
 main:
   - key: fan
     name: Spin up and measure

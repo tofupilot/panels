@@ -3,50 +3,90 @@
     "slug": "airspeed",
     "title": "Airspeed Indicator",
     "description": "An aircraft airspeed indicator with colored arcs and a red line. The needle follows a live reading and turns red on overspeed.",
+    "category": "gauges",
+    "industry": "aerospace",
     "tags": [
-      "Gauge",
-      "Aerospace",
+      "SVG needle",
       "Button"
+    ],
+    "cli": "2.7.0",
+    "files": [
+      "procedure.yaml",
+      "panels/airspeed.html",
+      "phases/airspeed.py",
+      "plugs/pitot.py"
     ]
   },
   {
     "slug": "battery-charge",
     "title": "Battery Pack Charge",
     "description": "State of charge, current, temperature and all eight cells live while a LiFePO4 pack charges and balances.",
+    "category": "bars",
+    "industry": "batteries",
     "tags": [
       "Bars",
-      "Battery",
-      "Measurements"
+      "Result chips"
+    ],
+    "cli": "2.7.0",
+    "files": [
+      "procedure.yaml",
+      "panels/charge.html",
+      "phases/charge.py",
+      "plugs/charger.py"
     ]
   },
   {
     "slug": "power-rails",
     "title": "Power Rails Fixture",
     "description": "A board drawing whose test points light up as the probe moves, each turning green or red with its rail's result.",
+    "category": "synoptics",
+    "industry": "electronics",
     "tags": [
-      "Synoptic",
-      "Electronics",
-      "Measurements"
+      "SVG drawing",
+      "Live verdicts"
+    ],
+    "cli": "2.7.0",
+    "files": [
+      "procedure.yaml",
+      "panels/rails.html",
+      "phases/rails.py",
+      "plugs/probe.py"
     ]
   },
   {
     "slug": "motor-spin",
     "title": "Motor Spin Test",
     "description": "Speed and current arc gauges for a drone motor and ESC, with each throttle setpoint lit as the sweep reaches it.",
+    "category": "gauges",
+    "industry": "motors",
     "tags": [
-      "Gauge",
-      "Drones",
-      "Measurements"
+      "Arc gauges",
+      "Step lights"
+    ],
+    "cli": "2.7.0",
+    "files": [
+      "procedure.yaml",
+      "panels/spin.html",
+      "phases/spin.py",
+      "plugs/stand.py"
     ]
   },
   {
     "slug": "fan-test",
     "title": "Cooling Fan Test",
     "description": "Fan blades and airflow lines on looping CSS animations that start and stop with the run, next to live speed and airflow readings.",
+    "category": "animation",
+    "industry": "industrial-equipment",
     "tags": [
-      "Animation",
-      "Thermal",
-      "Measurements"
+      "Keyframes",
+      "Result chips"
+    ],
+    "cli": "2.7.0",
+    "files": [
+      "procedure.yaml",
+      "panels/fan.html",
+      "phases/fan.py",
+      "plugs/bench.py"
     ]
   }
 ]

@@ -11,7 +11,8 @@ The pack's state of charge fills the battery shape with `height: calc(var(--valu
 | File | Role |
 |---|---|
 | `procedure.yaml` | The phase, its measurements and limits, and `ui.panel` |
-| `phases/charge.py` | The test, with the instrument mocked |
+| `phases/charge.py` | The test |
+| `plugs/charger.py` | The instrument, mocked |
 | `panels/charge.html` | The panel |
 
 ## Run It
@@ -20,4 +21,4 @@ The pack's state of charge fills the battery shape with `height: calc(var(--valu
 tofupilot run battery-charge
 ```
 
-Replace the mock in `phases/charge.py` with your instrument's driver to use it on a real bench.
+Replace the mock in `plugs/charger.py` with your instrument's driver to use it on a real bench.

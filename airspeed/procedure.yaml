@@ -1,6 +1,11 @@
 name: Airspeed Indicator
 version: 1.0.0
 
+plugs:
+  - key: pitot
+    name: Pitot probe
+    python: plugs.pitot:PitotProbe
+
 main:
   - key: airspeed
     name: Airspeed sweep

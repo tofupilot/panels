@@ -11,7 +11,8 @@ See it live at [tofupilot.com/panels#airspeed](https://tofupilot.com/panels#airs
 | File | Role |
 |---|---|
 | `procedure.yaml` | The phase, its measurements and limits, and `ui.panel` |
-| `phases/airspeed.py` | The test, with the instrument mocked |
+| `phases/airspeed.py` | The test |
+| `plugs/pitot.py` | The instrument, mocked |
 | `panels/airspeed.html` | The panel |
 
 ## Run It
@@ -20,4 +21,4 @@ See it live at [tofupilot.com/panels#airspeed](https://tofupilot.com/panels#airs
 tofupilot run airspeed
 ```
 
-Replace the mock in `phases/airspeed.py` with your instrument's driver to use it on a real bench.
+Replace the mock in `plugs/pitot.py` with your instrument's driver to use it on a real bench.

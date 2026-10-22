@@ -1,6 +1,11 @@
 name: Power Rails
 version: 1.0.0
 
+plugs:
+  - key: dmm
+    name: Flying probe and DMM
+    python: plugs.probe:Probe
+
 main:
   - key: rails
     name: Probe power rails

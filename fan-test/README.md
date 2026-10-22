@@ -13,7 +13,8 @@ Keyframe names are shared with the page, so they carry the example's name: `fan-
 | File | Role |
 |---|---|
 | `procedure.yaml` | The phase, its measurements and limits, and `ui.panel` |
-| `phases/fan.py` | The test, with the fan and the airflow bench mocked |
+| `phases/fan.py` | The test |
+| `plugs/bench.py` | The instrument, mocked |
 | `panels/fan.html` | The panel |
 
 ## Run It
@@ -22,4 +23,4 @@ Keyframe names are shared with the page, so they carry the example's name: `fan-
 tofupilot run fan-test
 ```
 
-Replace the mock in `phases/fan.py` with your fan controller and anemometer to use it on a real bench.
+Replace the mock in `plugs/bench.py` with your fan controller and anemometer to use it on a real bench.

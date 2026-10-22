@@ -1,6 +1,11 @@
 name: Motor Spin Test
 version: 1.0.0
 
+plugs:
+  - key: stand
+    name: Thrust stand
+    python: plugs.stand:ThrustStand
+
 main:
   - key: spin
     name: Throttle sweep

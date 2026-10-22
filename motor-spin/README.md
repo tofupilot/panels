@@ -11,7 +11,8 @@ The arc gauges are SVG paths with `pathLength="100"` and a `stroke-dasharray` co
 | File | Role |
 |---|---|
 | `procedure.yaml` | The phase, its measurements and limits, and `ui.panel` |
-| `phases/spin.py` | The test, with the instrument mocked |
+| `phases/spin.py` | The test |
+| `plugs/stand.py` | The instrument, mocked |
 | `panels/spin.html` | The panel |
 
 ## Run It
@@ -20,4 +21,4 @@ The arc gauges are SVG paths with `pathLength="100"` and a `stroke-dasharray` co
 tofupilot run motor-spin
 ```
 
-Replace the mock in `phases/spin.py` with your instrument's driver to use it on a real bench.
+Replace the mock in `plugs/stand.py` with your instrument's driver to use it on a real bench.

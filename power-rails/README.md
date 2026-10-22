@@ -11,7 +11,8 @@ See it live at [tofupilot.com/panels#power-rails](https://tofupilot.com/panels#p
 | File | Role |
 |---|---|
 | `procedure.yaml` | The phase, its measurements and limits, and `ui.panel` |
-| `phases/rails.py` | The test, with the instrument mocked |
+| `phases/rails.py` | The test |
+| `plugs/probe.py` | The instrument, mocked |
 | `panels/rails.html` | The panel |
 
 ## Run It
@@ -20,4 +21,4 @@ See it live at [tofupilot.com/panels#power-rails](https://tofupilot.com/panels#p
 tofupilot run power-rails
 ```
 
-Replace the mock in `phases/rails.py` with your instrument's driver to use it on a real bench.
+Replace the mock in `plugs/probe.py` with your instrument's driver to use it on a real bench.

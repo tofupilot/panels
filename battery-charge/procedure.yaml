@@ -1,6 +1,11 @@
 name: Battery Pack Charge
 version: 1.0.0
 
+plugs:
+  - key: charger
+    name: Charger and balancer
+    python: plugs.charger:Charger
+
 main:
   - key: charge
     name: Charge and balance

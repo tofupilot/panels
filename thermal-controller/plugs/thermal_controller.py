@@ -15,7 +15,8 @@ class ThermalController:
                 u = (i + 1) / steps
                 eased = 0.5 - 0.5 * math.cos(math.pi * u)
                 setpoint = t0 if kind == "DWELL" else t0 + (t1 - t0) * eased
-                pv = setpoint - (1.2 if t1 < t0 else -1.2 if t1 > t0 else 0) * (kind == "RAMP")
+                # The baseplate lags the setpoint on a ramp: below it heating, above it cooling.
+                pv = setpoint - (1.2 if t1 > t0 else -1.2 if t1 < t0 else 0) * (kind == "RAMP")
                 if kind == "DWELL":
                     pv = t0 + (3.1 if t0 > 0 else -1.6) * math.exp(-6 * u) * math.cos(9 * u)
                 pv += 0.12 * math.sin(len(self.samples) * 1.9)

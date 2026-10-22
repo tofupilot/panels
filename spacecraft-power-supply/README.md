@@ -6,7 +6,7 @@ See it live at [tofupilot.com/panels#spacecraft-power-supply](https://tofupilot.
 
 ## How It Works
 
-It is the front panel of the instrument itself, drawn as hardware. `ui.v0` to `ui.v3` and `ui.i0` to `ui.i3` drive the fluorescent 7-segment display. `ui.cv` and `ui.cc` show the regulation mode, `ui.limit` lights when the bus leaves its 22 to 36 V input range, and `ui.out` lights the output key.
+It is the front panel of the instrument itself, drawn as hardware. `ui.v0` to `ui.v3` and `ui.i0` to `ui.i3` drive the fluorescent 7-segment display. `ui.cv` and `ui.cc` show the regulation mode, `ui.limit` lights when the bus leaves its 22 to 36 V input range, and `ui.out` when the output is on.
 
 | File | Role |
 |---|---|

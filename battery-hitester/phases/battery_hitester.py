@@ -17,7 +17,7 @@ def measure(ui, measurements, meter):
     for _ in range(meter.length()):
         mohm, volts, step = meter.read()
         show(ui, "r", f"{mohm:5.3f}")
-        show(ui, "v", f"{volts:6.3f}")
+        show(ui, "v", f"{volts:7.4f}")
         ui.comp = "HI" if mohm > WINDOW_MOHM[1] else "LO" if mohm < WINDOW_MOHM[0] else "IN"
         if step == "REST":
             rest.append(mohm)

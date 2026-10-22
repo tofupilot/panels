@@ -6,7 +6,7 @@ See it live at [tofupilot.com/panels#battery-hitester](https://tofupilot.com/pan
 
 ## How It Works
 
-It is the front panel of the instrument itself, drawn as hardware. `ui.r0` to `ui.r3` and `ui.v0` to `ui.v4` drive the LCD's 7-segment digits. `ui.comp`, bound on the lamp group, lights HI, IN or LO with `[data-value=IN]` and so on, against the 8.0 to 12.0 mΩ window.
+It is the front panel of the instrument itself, drawn as hardware. `ui.r0` to `ui.r3` and `ui.v0` to `ui.v5` drive the LCD's 7-segment digits. `ui.comp`, bound on the lamp group, lights HI, IN or LO with `[data-value=IN]` and so on, against the 8.0 to 12.0 mΩ window.
 
 | File | Role |
 |---|---|

@@ -1,0 +1,106 @@
+<div class="pack">
+  <section class="soc" data-bind="ui.soc">
+    <div class="cell-shape">
+      <div class="cap"></div>
+      <div class="body"><div class="fill"></div></div>
+    </div>
+    <div class="soc-text">
+      <span class="big"><b data-bind="ui.soc" data-format="0">0</b>%</span>
+      <span class="mode" data-bind="ui.mode"></span>
+    </div>
+  </section>
+
+  <section class="gauges">
+    <div class="tile">
+      <span class="label">Pack voltage</span>
+      <span class="num"><b data-bind="ui.voltage" data-format="0.00"></b> V</span>
+    </div>
+    <div class="tile">
+      <span class="label">Charge current</span>
+      <span class="num"><b data-bind="ui.current" data-format="0.0"></b> A</span>
+      <div class="bar" data-bind="ui.current"><i></i></div>
+    </div>
+    <div class="tile">
+      <span class="label">Temperature</span>
+      <span class="num"><b data-bind="ui.temp" data-format="0.0"></b> °C</span>
+      <div class="bar warm" data-bind="ui.temp"><i></i></div>
+    </div>
+  </section>
+
+  <section class="cells">
+    <span class="label">Cells</span>
+    <div class="row">
+      <div class="c" data-bind="ui.cell_1"><i></i><small data-bind="ui.cell_1" data-format="0.000"></small></div>
+      <div class="c" data-bind="ui.cell_2"><i></i><small data-bind="ui.cell_2" data-format="0.000"></small></div>
+      <div class="c" data-bind="ui.cell_3"><i></i><small data-bind="ui.cell_3" data-format="0.000"></small></div>
+      <div class="c" data-bind="ui.cell_4"><i></i><small data-bind="ui.cell_4" data-format="0.000"></small></div>
+      <div class="c" data-bind="ui.cell_5"><i></i><small data-bind="ui.cell_5" data-format="0.000"></small></div>
+      <div class="c" data-bind="ui.cell_6"><i></i><small data-bind="ui.cell_6" data-format="0.000"></small></div>
+      <div class="c" data-bind="ui.cell_7"><i></i><small data-bind="ui.cell_7" data-format="0.000"></small></div>
+      <div class="c" data-bind="ui.cell_8"><i></i><small data-bind="ui.cell_8" data-format="0.000"></small></div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="chip" data-bind="measurements.pack_voltage">
+      <span>End voltage</span><b data-bind="measurements.pack_voltage" data-format="0.00"></b>
+    </div>
+    <div class="chip" data-bind="measurements.cell_delta">
+      <span>Imbalance</span><b data-bind="measurements.cell_delta" data-format="0.0"></b>
+    </div>
+    <div class="chip" data-bind="measurements.max_temp">
+      <span>Max temp</span><b data-bind="measurements.max_temp" data-format="0.0"></b>
+    </div>
+  </section>
+</div>
+<style>
+  .pack {
+    display: grid; gap: 16px; padding: 20px; border-radius: 16px;
+    grid-template-columns: 160px minmax(0, 1fr);
+    background: #14181d; color: #e8ecef; font-family: system-ui, sans-serif;
+  }
+  .label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8a949e; }
+  .soc { grid-row: span 2; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .cell-shape { display: flex; flex-direction: column; align-items: center; }
+  .cap { width: 44px; height: 12px; border-radius: 4px 4px 0 0; background: #3a434c; }
+  .body {
+    position: relative; width: 104px; height: 176px; border-radius: 14px;
+    border: 4px solid #3a434c; overflow: hidden; background: #0c0f12;
+  }
+  .fill {
+    position: absolute; left: 4px; right: 4px; bottom: 4px; border-radius: 8px;
+    height: calc(clamp(0, var(--value, 0), 100) * 1% - 8px * clamp(0, var(--value, 0), 100) / 100);
+    background: linear-gradient(#5be38f, #23a35a);
+    transition: height .2s linear;
+  }
+  .soc-text { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .big { font: 600 40px ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; }
+  .mode { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #213a2b; color: #6fe3a0; }
+  .mode[data-value=CV] { background: #3a3320; color: #f2c230; }
+  .mode[data-value=FULL] { background: #1f3346; color: #7cc4ff; }
+  .gauges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tile { display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 12px; background: #1c2128; }
+  .num { font: 500 20px ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .bar { height: 6px; border-radius: 3px; background: #2a3138; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: #4aa8ff; width: calc(clamp(0, var(--value, 0), 10) * 10%); transition: width .2s; }
+  .bar.warm i { background: #f29b30; width: calc((clamp(20, var(--value, 20), 50) - 20) / 30 * 100%); }
+  .cells { display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 12px; background: #1c2128; }
+  .row { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
+  .c { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; height: 110px; }
+  .c i {
+    display: block; width: 100%; border-radius: 4px; background: #5be38f;
+    height: calc((clamp(3, var(--value, 3), 3.7) - 3) / 0.7 * 80px + 4px);
+    transition: height .2s linear;
+  }
+  .c small { font: 10px ui-monospace, Menlo, monospace; color: #8a949e; }
+  .results { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .chip {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 10px 14px; border-radius: 10px; background: #1c2128; border: 1px solid #2a3138; font-size: 13px; color: #8a949e;
+  }
+  .chip b { font: 600 18px ui-monospace, Menlo, monospace; color: #e8ecef; }
+  .chip[data-outcome=PASS] { border-color: #2f7d4f; background: #16271d; }
+  .chip[data-outcome=PASS] b { color: #6fe3a0; }
+  .chip[data-outcome=FAIL] { border-color: #8c2f2c; background: #2c1716; }
+  .chip[data-outcome=FAIL] b { color: #ff8a84; }
+</style>

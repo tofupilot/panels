@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "airspeed",
+    "title": "Airspeed Indicator",
+    "description": "An aircraft airspeed indicator with colored arcs and a red line. The needle follows a live reading and turns red on overspeed.",
+    "tags": ["Gauge", "Aerospace", "Button"]
+  },
+  {
+    "slug": "battery-charge",
+    "title": "Battery Pack Charge",
+    "description": "State of charge, current, temperature and all eight cells live while a LiFePO4 pack charges and balances.",
+    "tags": ["Bars", "Battery", "Measurements"]
+  },
+  {
+    "slug": "power-rails",
+    "title": "Power Rails Fixture",
+    "description": "A board drawing whose test points light up as the probe moves, each turning green or red with its rail's result.",
+    "tags": ["Synoptic", "Electronics", "Measurements"]
+  },
+  {
+    "slug": "motor-spin",
+    "title": "Motor Spin Test",
+    "description": "Speed and current arc gauges for a drone motor and ESC, with each throttle setpoint lit as the sweep reaches it.",
+    "tags": ["Gauge", "Drones", "Measurements"]
+  }
+]

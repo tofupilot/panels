@@ -1,0 +1,76 @@
+<div class="fixture" data-bind="ui.probe">
+  <svg class="board" viewBox="0 0 560 340" role="img" aria-label="Controller board with five test points">
+    <rect x="10" y="10" width="540" height="320" rx="18" fill="#0f3d2b" stroke="#1d5c42" stroke-width="3"/>
+    <circle cx="34" cy="34" r="8" fill="#0a2a1e" stroke="#c9a45c" stroke-width="3"/>
+    <circle cx="526" cy="34" r="8" fill="#0a2a1e" stroke="#c9a45c" stroke-width="3"/>
+    <circle cx="34" cy="306" r="8" fill="#0a2a1e" stroke="#c9a45c" stroke-width="3"/>
+    <circle cx="526" cy="306" r="8" fill="#0a2a1e" stroke="#c9a45c" stroke-width="3"/>
+    <path d="M70 170H150M150 170V90H250M150 170V250H250M330 90H400M330 250H400M400 90V170H460M400 250V170" fill="none" stroke="#2d7a57" stroke-width="4"/>
+    <rect x="22" y="140" width="48" height="60" rx="4" fill="#2b2f33"/>
+    <text x="46" y="220" class="silk">J1 12V</text>
+    <rect x="250" y="66" width="80" height="48" rx="4" fill="#1d1f22"/>
+    <text x="290" y="95" class="chip">BUCK 5V</text>
+    <rect x="250" y="226" width="80" height="48" rx="4" fill="#1d1f22"/>
+    <text x="290" y="255" class="chip">LDO 3V3</text>
+    <rect x="400" y="130" width="100" height="80" rx="6" fill="#1d1f22"/>
+    <text x="450" y="166" class="chip">MCU</text>
+    <text x="450" y="182" class="chip dim">1V8 core</text>
+
+    <g class="tp tp-vin" data-bind="measurements.vin"><circle class="ring" cx="110" cy="170" r="22"/><circle class="pad" cx="110" cy="170" r="11"/><text x="110" y="208" class="silk">TP1 VIN</text></g>
+    <g class="tp tp-v5" data-bind="measurements.v5"><circle class="ring" cx="365" cy="90" r="22"/><circle class="pad" cx="365" cy="90" r="11"/><text x="365" y="58" class="silk">TP2 5V</text></g>
+    <g class="tp tp-v3v3" data-bind="measurements.v3v3"><circle class="ring" cx="365" cy="250" r="22"/><circle class="pad" cx="365" cy="250" r="11"/><text x="365" y="292" class="silk">TP3 3V3</text></g>
+    <g class="tp tp-v1v8" data-bind="measurements.v1v8"><circle class="ring" cx="450" cy="250" r="22"/><circle class="pad" cx="450" cy="250" r="11"/><text x="450" y="292" class="silk">TP4 1V8</text></g>
+    <g class="tp tp-shunt" data-bind="measurements.idle_current"><circle class="ring" cx="190" cy="250" r="22"/><circle class="pad" cx="190" cy="250" r="11"/><text x="190" y="292" class="silk">TP5 SHUNT</text></g>
+  </svg>
+
+  <aside class="side">
+    <div class="meter">
+      <span class="label">Probe reading</span>
+      <span class="value"><b data-bind="ui.reading" data-format="0.000"></b><i class="unit"></i></span>
+    </div>
+    <ul class="results">
+      <li data-bind="measurements.vin"><span>TP1 Input</span><b data-bind="measurements.vin" data-format="0.000"></b></li>
+      <li data-bind="measurements.v5"><span>TP2 5 V</span><b data-bind="measurements.v5" data-format="0.000"></b></li>
+      <li data-bind="measurements.v3v3"><span>TP3 3.3 V</span><b data-bind="measurements.v3v3" data-format="0.000"></b></li>
+      <li data-bind="measurements.v1v8"><span>TP4 1.8 V</span><b data-bind="measurements.v1v8" data-format="0.000"></b></li>
+      <li data-bind="measurements.idle_current"><span>TP5 Idle mA</span><b data-bind="measurements.idle_current" data-format="0.0"></b></li>
+    </ul>
+  </aside>
+</div>
+<style>
+  .fixture {
+    display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 16px; align-items: center;
+    padding: 20px; border-radius: 16px; background: #111417; color: #e8ecef; font-family: system-ui, sans-serif;
+  }
+  .board { width: 100%; height: auto; }
+  .silk { font: 600 11px ui-monospace, Menlo, monospace; fill: #e9e4d4; text-anchor: middle; }
+  .chip { font: 700 12px ui-monospace, Menlo, monospace; fill: #c3c8cd; text-anchor: middle; }
+  .chip.dim { font-weight: 400; font-size: 10px; fill: #7d858d; }
+  .pad { fill: #c9a45c; stroke: #8a6d33; stroke-width: 2; transition: fill .3s; }
+  .ring { fill: none; stroke: #7cc4ff; stroke-width: 3; opacity: 0; transition: opacity .2s; }
+  .tp[data-outcome=PASS] .pad { fill: #3ddc84; stroke: #1f8a50; }
+  .tp[data-outcome=FAIL] .pad { fill: #ff5a52; stroke: #a8302a; }
+  .fixture[data-value=vin] .tp-vin .ring,
+  .fixture[data-value=v5] .tp-v5 .ring,
+  .fixture[data-value=v3v3] .tp-v3v3 .ring,
+  .fixture[data-value=v1v8] .tp-v1v8 .ring,
+  .fixture[data-value=shunt] .tp-shunt .ring { opacity: 1; animation: rails-probe 1s ease-in-out infinite; }
+  @keyframes rails-probe { 50% { stroke-width: 7; } }
+  .side { display: flex; flex-direction: column; gap: 12px; }
+  .meter { display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 12px; background: #1c2128; }
+  .label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8a949e; }
+  .value { font: 600 34px ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; color: #7cc4ff; }
+  .unit { font-style: normal; font-size: 16px; margin-left: 6px; color: #8a949e; }
+  .unit::after { content: "V"; }
+  .fixture[data-value=shunt] .unit::after { content: "mA"; }
+  .results { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .results li {
+    display: flex; justify-content: space-between; padding: 8px 12px; border-radius: 8px;
+    background: #1c2128; border: 1px solid #2a3138; font-size: 13px; color: #8a949e;
+  }
+  .results b { font: 600 14px ui-monospace, Menlo, monospace; color: #e8ecef; }
+  .results li[data-outcome=PASS] { border-color: #2f7d4f; background: #16271d; }
+  .results li[data-outcome=PASS] b { color: #6fe3a0; }
+  .results li[data-outcome=FAIL] { border-color: #8c2f2c; background: #2c1716; }
+  .results li[data-outcome=FAIL] b { color: #ff8a84; }
+</style>

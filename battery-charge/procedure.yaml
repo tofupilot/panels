@@ -1,0 +1,30 @@
+name: Battery Pack Charge
+version: 1.0.0
+
+main:
+  - key: charge
+    name: Charge and balance
+    python: phases.charge:charge
+    measurements:
+      - key: pack_voltage
+        name: Pack voltage at end of charge
+        unit: V
+        validators:
+          - operator: ">="
+            expected_value: 28.6
+          - operator: "<="
+            expected_value: 29.4
+      - key: cell_delta
+        name: Cell imbalance
+        unit: mV
+        validators:
+          - operator: "<="
+            expected_value: 30
+      - key: max_temp
+        name: Maximum pack temperature
+        unit: °C
+        validators:
+          - operator: "<="
+            expected_value: 45
+    ui:
+      panel: panels/charge.html

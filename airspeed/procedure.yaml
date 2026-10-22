@@ -1,0 +1,18 @@
+name: Airspeed Indicator
+version: 1.0.0
+
+main:
+  - key: airspeed
+    name: Airspeed sweep
+    python: phases.airspeed:sweep
+    measurements:
+      - key: cruise_ias
+        name: Cruise indicated airspeed
+        unit: kt
+        validators:
+          - operator: ">="
+            expected_value: 100
+          - operator: "<="
+            expected_value: 130
+    ui:
+      panel: panels/airspeed.html

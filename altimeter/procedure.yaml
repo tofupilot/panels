@@ -1,0 +1,23 @@
+name: Altimeter
+version: 1.0.0
+
+plugs:
+  - key: tester
+    name: Pitot-static tester
+    python: plugs.pitot_static:PitotStaticTester
+
+main:
+  - key: altimeter
+    name: Climb and level off
+    python: phases.altimeter:climb
+    measurements:
+      - key: level_off_alt
+        name: Altitude after level-off
+        unit: ft
+        validators:
+          - operator: ">="
+            expected_value: 6450
+          - operator: "<="
+            expected_value: 6550
+    ui:
+      panel: panels/altimeter.html

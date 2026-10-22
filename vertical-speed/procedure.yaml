@@ -1,0 +1,23 @@
+name: Vertical Speed Indicator
+version: 1.0.0
+
+plugs:
+  - key: tester
+    name: Pitot-static tester
+    python: plugs.pitot_static:PitotStaticTester
+
+main:
+  - key: vsi
+    name: Climb and descend
+    python: phases.vertical_speed:climb_and_descend
+    measurements:
+      - key: climb_rate
+        name: Vertical speed in the climb
+        unit: fpm
+        validators:
+          - operator: ">="
+            expected_value: 900
+          - operator: "<="
+            expected_value: 1100
+    ui:
+      panel: panels/vsi.html

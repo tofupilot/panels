@@ -1,0 +1,63 @@
+<div class="inst">
+  <div class="dial">
+    <svg viewBox="38 7 210 210" role="img" aria-label="Attitude indicator">
+      <defs><clipPath id="face"><circle cx="143" cy="112" r="90"/></clipPath></defs>
+      <rect x="43" y="12" width="200" height="200" rx="18" fill="#1b1f24"/>
+      <circle cx="54" cy="23" r="4" fill="#4a525b"/><circle cx="232" cy="23" r="4" fill="#4a525b"/>
+      <circle cx="54" cy="201" r="4" fill="#4a525b"/><circle cx="232" cy="201" r="4" fill="#4a525b"/>
+      <circle cx="143" cy="112" r="94" fill="#2a3037"/>
+      <circle cx="143" cy="112" r="90" fill="#0c0e10"/>
+      <g clip-path="url(#face)">
+        <g class="roll" data-bind="ui.roll">
+          <g class="pitch" data-bind="ui.pitch">
+            <rect x="-60" y="-140" width="406" height="252" fill="#2f6aa8"/>
+            <rect x="-60" y="112" width="406" height="252" fill="#6b4627"/>
+            <path d="M-60 112H346" stroke="#f2f4f6" stroke-width="2"/>
+            <g class="ladder"><path d="M121 156.0H165"/><text x="112" y="156.0">20</text><text x="174" y="156.0">20</text><path d="M132 145.0H154"/><path d="M121 134.0H165"/><text x="112" y="134.0">10</text><text x="174" y="134.0">10</text><path d="M132 123.0H154"/><path d="M132 101.0H154"/><path d="M121 90.0H165"/><text x="112" y="90.0">10</text><text x="174" y="90.0">10</text><path d="M132 79.0H154"/><path d="M121 68.0H165"/><text x="112" y="68.0">20</text><text x="174" y="68.0">20</text></g>
+          </g>
+          <path class="sky-pointer" d="M143 31L137 42H149Z"/>
+        </g>
+        <path d="M75.5 73.0L66.8 68.0M85.7 54.7L80.8 49.8M104.0 44.5L99.0 35.8M115.3 35.9L112.9 29.3M128.9 32.2L127.7 25.3M157.1 32.2L158.3 25.3M170.7 35.9L173.1 29.3M182.0 44.5L187.0 35.8M200.3 54.7L205.2 49.8M210.5 73.0L219.2 68.0" stroke="#f2f4f6" stroke-width="2"/>
+        <path d="M143 30L139 22H147Z" fill="#f2f4f6"/>
+      </g>
+      <g class="aircraft">
+        <path d="M93 112H123L128 120M193 112H163L158 120"/>
+        <circle cx="143" cy="112" r="3.5"/>
+      </g>
+    </svg>
+  </div>
+</div>
+<style>
+  .inst { display: flex; justify-content: center; padding: 0 16px; }
+  .dial { position: relative; width: min(360px, 90vw); }
+  .dial svg { display: block; width: 100%; height: auto; }
+  .num { font: 700 15px "Barlow Condensed", "Arial Narrow", sans-serif; fill: #f2f4f6; text-anchor: middle; dominant-baseline: central; }
+  .cap { font: 600 7px system-ui, sans-serif; fill: #8a949e; text-anchor: middle; letter-spacing: .12em; }
+  .readout {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    pointer-events: none;
+  }
+  .readout b { font: 600 30px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; color: #f2f4f6; transition: color .2s; }
+  .readout span { font: 600 10px system-ui, sans-serif; letter-spacing: .12em; color: #8a949e; }
+  .track, .arc { fill: none; stroke-width: 7; stroke-linecap: round; }
+  .track { stroke: #22282f; }
+  .arc { stroke: #4aa8ff; transition: stroke-dasharray .12s linear, stroke .2s; }
+  .tip { fill: #f2f4f6; transform-box: view-box; transform-origin: 143px 112px; transition: transform .12s linear, fill .2s; }
+  /* Banking right turns the horizon left; pitching up moves it down. */
+  .roll {
+    transform-box: view-box;
+    transform-origin: 143px 112px;
+    transform: rotate(calc(clamp(-90, var(--value, 0), 90) * -1deg));
+    transition: transform .12s linear;
+  }
+  .pitch {
+    transform: translateY(calc(clamp(-25, var(--value, 0), 25) * 2.2px));
+    transition: transform .12s linear;
+  }
+  .ladder { stroke: #f2f4f6; stroke-width: 1.5; }
+  .ladder text { stroke: none; font: 700 8px system-ui, sans-serif; fill: #f2f4f6; text-anchor: middle; dominant-baseline: central; }
+  .sky-pointer { fill: #f2f4f6; }
+  .aircraft path { fill: none; stroke: #f2c230; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  .aircraft circle { fill: #f2c230; }
+</style>

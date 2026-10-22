@@ -1,0 +1,55 @@
+<div class="inst">
+  <div class="dial">
+    <svg viewBox="38 7 210 210" role="img" aria-label="Altimeter">
+      <rect x="43" y="12" width="200" height="200" rx="18" fill="#1b1f24"/>
+      <circle cx="54" cy="23" r="4" fill="#4a525b"/><circle cx="232" cy="23" r="4" fill="#4a525b"/>
+      <circle cx="54" cy="201" r="4" fill="#4a525b"/><circle cx="232" cy="201" r="4" fill="#4a525b"/>
+      <circle cx="143" cy="112" r="94" fill="#2a3037"/>
+      <circle cx="143" cy="112" r="90" fill="#0c0e10"/>
+      <path d="M107.9 182.8L104.8 189.0M100.2 178.4L96.4 184.3M93.1 173.2L88.6 178.6M86.6 167.3L81.6 172.2M75.7 153.4L69.8 157.1M71.5 145.6L65.2 148.6M68.2 137.5L61.6 139.7M65.8 129.0L59.0 130.5M64.0 111.4L57.0 111.4M64.6 102.6L57.6 101.8M66.1 94.0L59.3 92.4M68.6 85.5L62.0 83.2M76.3 69.7L70.4 65.9M81.4 62.5L76.0 58.1M87.3 55.9L82.4 51.0M93.9 50.1L89.6 44.6M108.9 40.8L105.8 34.4M117.0 37.4L114.7 30.8M125.5 35.0L123.9 28.1M134.2 33.5L133.4 26.5M151.8 33.5L152.6 26.5M160.5 35.0L162.1 28.1M169.0 37.4L171.3 30.8M177.1 40.8L180.2 34.4M192.1 50.1L196.4 44.6M198.7 55.9L203.6 51.0M204.6 62.5L210.0 58.1M209.7 69.7L215.6 65.9M217.4 85.5L224.0 83.2M219.9 94.0L226.7 92.4M221.4 102.6L228.4 101.8M222.0 111.4L229.0 111.4M220.2 129.0L227.0 130.5M217.8 137.5L224.4 139.7M214.5 145.6L220.8 148.6M210.3 153.4L216.2 157.1M199.4 167.3L204.4 172.2M192.9 173.2L197.4 178.6M185.8 178.4L189.6 184.3M178.1 182.8L181.2 189.0" stroke="#f2f4f6" stroke-width="1"/>
+      <path d="M117.7 181.5L113.6 192.8M84.7 157.6L75.2 164.9M69.4 119.7L57.5 121.0M76.5 79.6L65.7 74.3M103.8 49.2L97.4 39.1M143.0 38.0L143.0 26.0M182.2 49.2L188.6 39.1M209.5 79.6L220.3 74.3M216.6 119.7L228.5 121.0M201.3 157.6L210.8 164.9M168.3 181.5L172.4 192.8" stroke="#f2f4f6" stroke-width="2.2"/>
+      <text x="122.1" y="169.3" class="num">0</text><text x="94.9" y="149.6" class="num">1</text><text x="82.3" y="118.4" class="num">2</text><text x="88.2" y="85.3" class="num">3</text><text x="110.7" y="60.3" class="num">4</text><text x="143.0" y="51.0" class="num">5</text><text x="175.3" y="60.3" class="num">6</text><text x="197.8" y="85.3" class="num">7</text><text x="203.7" y="118.4" class="num">8</text><text x="191.1" y="149.6" class="num">9</text><text x="163.9" y="169.3" class="num">10</text>
+      <text x="143" y="186" class="cap">× 1000 FT</text>
+      <g class="bug" data-bind="ui.alt_sel">
+        <path d="M137 21H149V27L143 31L137 27Z"/>
+      </g>
+      <g class="sweep" data-bind="ui.alt">
+        <path class="track" d="M128.6 151.5A42 42 0 1 1 157.4 151.5" pathLength="100"/>
+        <path class="arc" d="M128.6 151.5A42 42 0 1 1 157.4 151.5" pathLength="100"/>
+        <circle class="tip" cx="143" cy="70" r="4.5"/>
+      </g>
+    </svg>
+    <div class="readout">
+      <b data-bind="ui.alt" data-format="0">0</b>
+      <span>FT</span>
+    </div>
+  </div>
+</div>
+<style>
+  .inst { display: flex; justify-content: center; padding: 0 16px; }
+  .dial { position: relative; width: min(360px, 90vw); }
+  .dial svg { display: block; width: 100%; height: auto; }
+  .num { font: 700 15px "Barlow Condensed", "Arial Narrow", sans-serif; fill: #f2f4f6; text-anchor: middle; dominant-baseline: central; }
+  .cap { font: 600 7px system-ui, sans-serif; fill: #8a949e; text-anchor: middle; letter-spacing: .12em; }
+  .readout {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    pointer-events: none;
+  }
+  .readout b { font: 600 30px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; color: #f2f4f6; transition: color .2s; }
+  .readout span { font: 600 10px system-ui, sans-serif; letter-spacing: .12em; color: #8a949e; }
+  .track, .arc { fill: none; stroke-width: 7; stroke-linecap: round; }
+  .track { stroke: #22282f; }
+  .arc { stroke: #4aa8ff; transition: stroke-dasharray .12s linear, stroke .2s; }
+  .tip { fill: #f2f4f6; transform-box: view-box; transform-origin: 143px 112px; transition: transform .12s linear, fill .2s; }
+  /* The sweep fills from 0 ft to the reading; the cyan bug marks the selected altitude. */
+  .arc { stroke-dasharray: calc(clamp(0, var(--value, 0), 10000) / 10000 * 100) 200; }
+  .tip { transform: rotate(calc(clamp(0, var(--value, 0), 10000) / 10000 * 320deg - 160deg)); }
+  .bug {
+    fill: #22d3ee;
+    transform-box: view-box;
+    transform-origin: 143px 112px;
+    transform: rotate(calc(clamp(0, var(--value, 0), 10000) / 10000 * 320deg - 160deg));
+    transition: transform .2s;
+  }
+</style>

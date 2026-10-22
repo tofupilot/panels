@@ -1,0 +1,31 @@
+name: Turn Coordinator
+version: 1.0.0
+
+plugs:
+  - key: table
+    name: Rate table
+    python: plugs.rate_table:RateTable
+
+main:
+  - key: turn
+    name: Standard-rate turn
+    python: phases.turn_coordinator:standard_rate_turn
+    measurements:
+      - key: turn_rate
+        name: Turn rate in the turn
+        unit: deg/s
+        validators:
+          - operator: ">="
+            expected_value: 2.85
+          - operator: "<="
+            expected_value: 3.15
+      - key: slip
+        name: Slip in the turn
+        unit: ball
+        validators:
+          - operator: ">="
+            expected_value: -0.3
+          - operator: "<="
+            expected_value: 0.3
+    ui:
+      panel: panels/turn.html

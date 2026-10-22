@@ -18,6 +18,96 @@
     ]
   },
   {
+    "slug": "attitude",
+    "title": "Attitude Indicator",
+    "description": "An attitude indicator: the horizon pitches and banks behind a fixed aircraft symbol while a tilt table moves the unit.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "SVG horizon",
+      "clipPath"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/attitude.html",
+      "phases/attitude.py",
+      "plugs/tilt_table.py"
+    ]
+  },
+  {
+    "slug": "altimeter",
+    "title": "Altimeter",
+    "description": "An altimeter: an arc sweeps up to the live altitude while a cyan bug marks the selected one, and the reading stays in the center.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "SVG arc",
+      "Target bug"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/altimeter.html",
+      "phases/altimeter.py",
+      "plugs/pitot_static.py"
+    ]
+  },
+  {
+    "slug": "turn-coordinator",
+    "title": "Turn Coordinator",
+    "description": "A turn coordinator: the aircraft banks onto the standard-rate mark with the turn rate, and the ball slips in its tube.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "SVG rotate",
+      "Slip ball"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/turn.html",
+      "phases/turn_coordinator.py",
+      "plugs/rate_table.py"
+    ]
+  },
+  {
+    "slug": "heading",
+    "title": "Heading Indicator",
+    "description": "A heading indicator: the compass card turns under the lubber line to the live heading, with a cyan bug on the selected one.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "SVG card",
+      "Target bug"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/heading.html",
+      "phases/heading.py",
+      "plugs/turntable.py"
+    ]
+  },
+  {
+    "slug": "vertical-speed",
+    "title": "Vertical Speed Indicator",
+    "description": "A vertical speed indicator: an arc fills up from zero in a climb and down in a descent, and turns red past the sink rate limit.",
+    "category": "gauges",
+    "industry": "aerospace",
+    "tags": [
+      "SVG arc",
+      "Sink alert"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/vsi.html",
+      "phases/vertical_speed.py",
+      "plugs/pitot_static.py"
+    ]
+  },
+  {
     "slug": "battery-charge",
     "title": "Battery Pack Charge",
     "description": "State of charge, current, temperature and all eight cells live while a LiFePO4 pack charges and balances.",

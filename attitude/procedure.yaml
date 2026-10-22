@@ -1,0 +1,31 @@
+name: Attitude Indicator
+version: 1.0.0
+
+plugs:
+  - key: table
+    name: Tilt table
+    python: plugs.tilt_table:TiltTable
+
+main:
+  - key: attitude
+    name: Pitch and bank
+    python: phases.attitude:maneuver
+    measurements:
+      - key: level_pitch
+        name: Pitch after the maneuver
+        unit: deg
+        validators:
+          - operator: ">="
+            expected_value: -1
+          - operator: "<="
+            expected_value: 1
+      - key: level_roll
+        name: Roll after the maneuver
+        unit: deg
+        validators:
+          - operator: ">="
+            expected_value: -1
+          - operator: "<="
+            expected_value: 1
+    ui:
+      panel: panels/attitude.html

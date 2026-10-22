@@ -1,0 +1,23 @@
+name: Heading Indicator
+version: 1.0.0
+
+plugs:
+  - key: turntable
+    name: Turntable
+    python: plugs.turntable:Turntable
+
+main:
+  - key: heading
+    name: Turn to heading
+    python: phases.heading:turn
+    measurements:
+      - key: final_heading
+        name: Heading after the turn
+        unit: deg
+        validators:
+          - operator: ">="
+            expected_value: 268
+          - operator: "<="
+            expected_value: 272
+    ui:
+      panel: panels/heading.html

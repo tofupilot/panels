@@ -1,0 +1,66 @@
+<div class="inst">
+  <div class="dial">
+    <svg viewBox="38 7 210 210" role="img" aria-label="Turn coordinator">
+      <rect x="43" y="12" width="200" height="200" rx="18" fill="#1b1f24"/>
+      <circle cx="54" cy="23" r="4" fill="#4a525b"/><circle cx="232" cy="23" r="4" fill="#4a525b"/>
+      <circle cx="54" cy="201" r="4" fill="#4a525b"/><circle cx="232" cy="201" r="4" fill="#4a525b"/>
+      <circle cx="143" cy="112" r="94" fill="#2a3037"/>
+      <circle cx="143" cy="112" r="90" fill="#0c0e10"/>
+      <path d="M81.0 112.0L63.0 112.0M205.0 112.0L223.0 112.0M84.7 133.2L67.8 139.4M201.3 133.2L218.2 139.4" stroke="#f2f4f6" stroke-width="4" stroke-linecap="round"/>
+      <text x="89.6" y="150.8" class="num">L</text><text x="196.4" y="150.8" class="num">R</text>
+      <text x="143" y="200" class="cap">2 MIN</text>
+      <path class="tube" d="M110.5 153.4A118 118 0 0 0 175.5 153.4"/>
+      <path d="M133.7 149.6L133.7 165.6M152.3 149.6L152.3 165.6" stroke="#0c0e10" stroke-width="1.5"/>
+      <g class="ball" data-bind="ui.slip">
+        <circle cx="143" cy="158" r="6.5"/>
+      </g>
+      <g class="plane" data-bind="ui.rate">
+        <path d="M83 112H203"/>
+        <path d="M143 112V95"/>
+        <circle cx="143" cy="112" r="8"/>
+      </g>
+    </svg>
+    <div class="readout turn">
+      <b data-bind="ui.rate" data-format="0.0">0.0</b>
+      <span>°/S</span>
+    </div>
+  </div>
+</div>
+<style>
+  .inst { display: flex; justify-content: center; padding: 0 16px; }
+  .dial { position: relative; width: min(360px, 90vw); }
+  .dial svg { display: block; width: 100%; height: auto; }
+  .num { font: 700 15px "Barlow Condensed", "Arial Narrow", sans-serif; fill: #f2f4f6; text-anchor: middle; dominant-baseline: central; }
+  .cap { font: 600 7px system-ui, sans-serif; fill: #8a949e; text-anchor: middle; letter-spacing: .12em; }
+  .readout {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    pointer-events: none;
+  }
+  .readout b { font: 600 30px/1 ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; color: #f2f4f6; transition: color .2s; }
+  .readout span { font: 600 10px system-ui, sans-serif; letter-spacing: .12em; color: #8a949e; }
+  .track, .arc { fill: none; stroke-width: 7; stroke-linecap: round; }
+  .track { stroke: #22282f; }
+  .arc { stroke: #4aa8ff; transition: stroke-dasharray .12s linear, stroke .2s; }
+  .tip { fill: #f2f4f6; transform-box: view-box; transform-origin: 143px 112px; transition: transform .12s linear, fill .2s; }
+  /* A standard-rate turn, 3 degrees per second, puts a wing on L or R. */
+  .plane {
+    transform-box: view-box;
+    transform-origin: 143px 112px;
+    transform: rotate(calc(clamp(-6, var(--value, 0), 6) / 3 * 20deg));
+    transition: transform .12s linear;
+  }
+  .plane path { fill: none; stroke: #4aa8ff; stroke-width: 5; stroke-linecap: round; }
+  .plane circle { fill: #4aa8ff; }
+  .tube { fill: none; stroke: #c9cfd5; stroke-width: 17; stroke-linecap: round; opacity: .9; }
+  /* The ball rides the tube's curve: it turns about the tube's center. */
+  .ball {
+    fill: #0c0e10;
+    transform-box: view-box;
+    transform-origin: 143px 40px;
+    transform: rotate(calc(clamp(-1.5, var(--value, 0), 1.5) * -9deg));
+    transition: transform .12s linear;
+  }
+  .readout.turn { justify-content: flex-start; padding-top: 22%; }
+  .readout.turn b { font-size: 22px; }
+</style>

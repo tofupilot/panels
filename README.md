@@ -41,7 +41,7 @@ scripts/record.py     # runs an example and records preview.json
 ## Add an Example
 
 1. Create a folder with `procedure.yaml`, `phases/`, `plugs/` and `panels/`, and check it passes with `tofupilot run <folder>`.
-2. Add it to `panels.json`. `category` is what the panel shows (`gauges`, `indicators`, `bars`, `synoptics`, `alarms`, `inputs`, `animation`, `layout`); `industry` is one of the [industry pages](https://tofupilot.com/industries). `about` is the example's How It Works section in Markdown, shown on its page on tofupilot.com.
+2. Add it to `panels.json`. `category` is what the panel shows (`gauges`, `indicators`, `bars`, `synoptics`, `alarms`, `inputs`, `animation`, `layout`); `industry` is one of the [industry pages](https://tofupilot.com/industries).
 3. Record its preview with CLI 2.8.0 or newer: `pip install pyyaml && python scripts/record.py <folder>`.
 
 The gallery shows a tagged release of this repository, so a new example appears on tofupilot.com once a release includes it.

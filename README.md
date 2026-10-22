@@ -17,7 +17,7 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 Every example runs on mocked instruments, so no hardware is needed.
 
 ```bash
-curl -fsSL https://www.tofupilot.app/install | sh   # TofuPilot CLI 2.7.0 or newer
+curl -fsSL https://www.tofupilot.app/install | sh   # TofuPilot CLI 2.8.0 or newer
 git clone https://github.com/tofupilot/panels
 cd panels
 tofupilot run airspeed

@@ -9,7 +9,7 @@
       "SVG needle",
       "Button"
     ],
-    "cli": "2.7.0",
+    "cli": "2.8.0",
     "files": [
       "procedure.yaml",
       "panels/airspeed.html",
@@ -27,7 +27,7 @@
       "Bars",
       "Result chips"
     ],
-    "cli": "2.7.0",
+    "cli": "2.8.0",
     "files": [
       "procedure.yaml",
       "panels/charge.html",
@@ -45,7 +45,7 @@
       "SVG drawing",
       "Live verdicts"
     ],
-    "cli": "2.7.0",
+    "cli": "2.8.0",
     "files": [
       "procedure.yaml",
       "panels/rails.html",
@@ -63,7 +63,7 @@
       "Arc gauges",
       "Step lights"
     ],
-    "cli": "2.7.0",
+    "cli": "2.8.0",
     "files": [
       "procedure.yaml",
       "panels/spin.html",
@@ -81,7 +81,7 @@
       "Keyframes",
       "Result chips"
     ],
-    "cli": "2.7.0",
+    "cli": "2.8.0",
     "files": [
       "procedure.yaml",
       "panels/fan.html",

@@ -8,7 +8,7 @@ See it live at [tofupilot.com/panels#fan-test](https://tofupilot.com/panels#fan-
 
 The blades and the airflow lines loop on fixed `@keyframes`, declared `paused`. The phase sets `ui.running = True`, and the panel's root, bound with `data-bind="ui.running"`, switches them to `animation-play-state: running` with `[data-value=true]`. The phase never drives the motion: it only sends the readings and records the measurements.
 
-Keyframe names are shared with the page, so they carry the example's name: `fan-test-spin`, `fan-test-flow`, `fan-test-blink`. Readers who prefer reduced motion see the panel still.
+The keyframes carry the example's name (`fan-test-spin`, `fan-test-flow`, `fan-test-blink`), so they stay distinct when you copy them into a panel of your own. Readers who prefer reduced motion see the panel still.
 
 | File | Role |
 |---|---|

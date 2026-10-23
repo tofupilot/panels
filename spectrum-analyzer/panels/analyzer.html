@@ -27,10 +27,10 @@
   .d7[data-value="U"] :is(.sb, .sc, .sd, .se, .sf) { fill: var(--on); }
   .d7[data-value="r"] :is(.se, .sg) { fill: var(--on); }
   .sp rect { fill: #ffd34d; }
-  .sp { opacity: 0; transform: translate(var(--x), calc(40px + (-20 - clamp(-110, var(--value, -110), -20)) / 90 * 136px)); transition: transform .25s linear; }
+  .sp { opacity: 0; transform: translate(var(--x), calc(40px + (-20 - clamp(-110, var(--value, -110), -20)) / 90 * 136px)); transition: transform .36s linear; }
   .sp[data-value] { opacity: 1; }
-  .mk-x { opacity: 0; transform: translateX(calc(20px + var(--value, 0) / 47 * 280px)); transition: transform .25s; }
+  .mk-x { opacity: 0; transform: translateX(calc(20px + var(--value, 0) / 47 * 280px)); transition: transform .36s linear; }
   .mk-x[data-value] { opacity: 1; }
-  .mk-y { transform: translateY(calc(40px + (-20 - clamp(-110, var(--value, -110), -20)) / 90 * 136px)); transition: transform .25s; }
+  .mk-y { transform: translateY(calc(40px + (-20 - clamp(-110, var(--value, -110), -20)) / 90 * 136px)); transition: transform .36s linear; }
   .mk-y path { fill: #ffd166; }
 </style>

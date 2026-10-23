@@ -33,6 +33,6 @@
   .inst[data-value="-12"] .s12, .inst[data-value="-6"] :is(.s12, .s6), .inst[data-value="-3"] :is(.s12, .s6, .s3), .inst[data-value="0"] :is(.s12, .s6, .s3, .s0) { color: #9ccfff; }
   .inst[data-value="-12"] .s12 rect, .inst[data-value="-6"] :is(.s12, .s6) rect, .inst[data-value="-3"] :is(.s12, .s6, .s3) rect, .inst[data-value="0"] :is(.s12, .s6, .s3, .s0) rect { fill: #16324d; }
   .pp rect { fill: #4aa8ff; }
-  .pp { transform: translate(var(--x), calc(180px - (clamp(-4, var(--value, -4), 0) + 4) / 4 * 122px)); transition: transform .2s linear; }
+  .pp { transform: translate(var(--x), calc(180px - (clamp(-4, var(--value, -4), 0) + 4) / 4 * 122px)); transition: transform .24s linear; }
   .inst[data-value=stop] .pp, .inst:not([data-value]) .pp { opacity: 0; }
 </style>

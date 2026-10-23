@@ -1,0 +1,31 @@
+name: Test Point Probing
+version: 1.0.0
+
+plugs:
+  - key: fixture
+    name: In-circuit fixture
+    python: plugs.fixture:Fixture
+
+main:
+  - key: ict
+    name: In-circuit
+    python: phases.test_point_probing:probe
+    measurements:
+      - key: usb0_vbus
+        name: USB0_VBUS on TP14
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 4.75
+          - operator: "<="
+            expected_value: 5.25
+      - key: usb1_fault
+        name: USB1_FAULT pull-up on TP11
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 3.0
+          - operator: "<="
+            expected_value: 3.6
+    ui:
+      panel: panels/probing.html

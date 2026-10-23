@@ -1,0 +1,23 @@
+name: Board View
+version: 1.0.0
+
+plugs:
+  - key: board_tester
+    name: Board tester
+    python: plugs.board_tester:BoardTester
+
+main:
+  - key: fct
+    name: Functional test
+    python: phases.board_view:functional_test
+    measurements:
+      - key: rail_3v3
+        name: 3.3 V regulator output
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 3.2
+          - operator: "<="
+            expected_value: 3.4
+    ui:
+      panel: panels/view.html

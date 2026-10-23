@@ -24,6 +24,11 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 | [Spacecraft Power Supply](spacecraft-power-supply) | The EGSE supply on the 28 V bus: V, A, CV/CC and the limit lamp |
 | [Random Vibration](random-vibration) | The vibration controller's PSD through the level steps |
 | [Reaction Wheels](reaction-wheels) | Four reaction wheels from telemetry on center-zero bars |
+| [Digital Multimeter](digital-multimeter) | A 6½-digit multimeter scanning a board's rails |
+| [Triple-Output Power Supply](triple-power-supply) | A triple-output supply's display with CV and CC per channel |
+| [Oscilloscope](oscilloscope) | A 4-channel scope screen on a board's power-up sequence |
+| [Test Point Probing](test-point-probing) | A KiCad board's test points probed one by one |
+| [Board View](board-view) | A KiCad board's parts lit step by step by the functional test |
 
 ## Run an Example
 

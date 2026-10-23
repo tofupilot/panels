@@ -322,5 +322,95 @@
       "phases/reaction_wheels.py",
       "plugs/telemetry.py"
     ]
+  },
+  {
+    "slug": "digital-multimeter",
+    "title": "Digital Multimeter",
+    "description": "A 6½-digit multimeter's display behind a scanner card, stepping through a board's four rails with each rail's ±3 % limit and verdict.",
+    "category": "gauges",
+    "industry": "electronics",
+    "tags": [
+      "7-segment",
+      "Scanner"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/multimeter.html",
+      "phases/digital_multimeter.py",
+      "plugs/multimeter.py"
+    ]
+  },
+  {
+    "slug": "triple-power-supply",
+    "title": "Triple-Output Power Supply",
+    "description": "A triple-output supply's display as its channels switch on: set point, volts, amps and watts per channel, and the CV or CC badge when a current limit is reached.",
+    "category": "gauges",
+    "industry": "electronics",
+    "tags": [
+      "Channel tiles",
+      "CV / CC"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/supply.html",
+      "phases/triple_power_supply.py",
+      "plugs/power_supply_3ch.py"
+    ]
+  },
+  {
+    "slug": "oscilloscope",
+    "title": "Oscilloscope",
+    "description": "A 4-channel oscilloscope's screen on a board's power-up: VBUS, the 3.3 V regulator, the MCU leaving reset, then an LED when the firmware boots, captured on a single trigger.",
+    "category": "layout",
+    "industry": "electronics",
+    "tags": [
+      "Traces",
+      "Single trigger"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/oscilloscope.html",
+      "phases/oscilloscope.py",
+      "plugs/oscilloscope.py"
+    ]
+  },
+  {
+    "slug": "test-point-probing",
+    "title": "Test Point Probing",
+    "description": "A board's bottom side drawn from its KiCad layout, with a bed-of-nails fixture probing its 19 test points in turn: each one turns green within its level or red outside it, and the probe shows the net and the reading.",
+    "category": "pcb",
+    "industry": "electronics",
+    "tags": [
+      "KiCad board",
+      "Bed of nails"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/probing.html",
+      "phases/test_point_probing.py",
+      "plugs/fixture.py"
+    ]
+  },
+  {
+    "slug": "board-view",
+    "title": "Board View",
+    "description": "A board's top side drawn from its KiCad layout, the way an interactive BOM shows it: each step of the functional test lights the parts it checks and names the result.",
+    "category": "pcb",
+    "industry": "electronics",
+    "tags": [
+      "KiCad board",
+      "Interactive BOM"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/view.html",
+      "phases/board_view.py",
+      "plugs/board_tester.py"
+    ]
   }
 ]

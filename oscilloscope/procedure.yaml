@@ -1,0 +1,29 @@
+name: Oscilloscope
+version: 1.0.0
+
+plugs:
+  - key: oscilloscope
+    name: Oscilloscope
+    python: plugs.oscilloscope:Oscilloscope
+
+main:
+  - key: powerup
+    name: Power-up sequencing
+    python: phases.oscilloscope:capture
+    measurements:
+      - key: reset_delay
+        name: 3.3 V to nRESET delay
+        unit: "ms"
+        validators:
+          - operator: ">="
+            expected_value: 1
+          - operator: "<="
+            expected_value: 5
+      - key: boot_time
+        name: Power-on to LED1
+        unit: "ms"
+        validators:
+          - operator: "<="
+            expected_value: 8
+    ui:
+      panel: panels/oscilloscope.html

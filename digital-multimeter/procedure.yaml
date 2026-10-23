@@ -1,0 +1,47 @@
+name: Digital Multimeter
+version: 1.0.0
+
+plugs:
+  - key: multimeter
+    name: Multimeter
+    python: plugs.multimeter:Multimeter
+
+main:
+  - key: rails
+    name: Rails
+    python: phases.digital_multimeter:rails
+    measurements:
+      - key: vbus
+        name: VBUS
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 4.871
+          - operator: "<="
+            expected_value: 5.172
+      - key: v3v3
+        name: 3.3 V rail
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 3.2
+          - operator: "<="
+            expected_value: 3.399
+      - key: usb1_vbus
+        name: USB1 VBUS
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 4.871
+          - operator: "<="
+            expected_value: 5.172
+      - key: vbat
+        name: VBAT
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 3.2
+          - operator: "<="
+            expected_value: 3.399
+    ui:
+      panel: panels/multimeter.html

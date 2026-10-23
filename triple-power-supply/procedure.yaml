@@ -1,0 +1,31 @@
+name: Triple-Output Power Supply
+version: 1.0.0
+
+plugs:
+  - key: supply
+    name: Triple-output power supply
+    python: plugs.power_supply_3ch:TripleSupply
+
+main:
+  - key: power
+    name: Power up
+    python: phases.triple_power_supply:power_up
+    measurements:
+      - key: vbus_current
+        name: VBUS current
+        unit: "A"
+        validators:
+          - operator: ">="
+            expected_value: 0.08
+          - operator: "<="
+            expected_value: 0.2
+      - key: usb1_load_current
+        name: USB1 load current
+        unit: "A"
+        validators:
+          - operator: ">="
+            expected_value: 0.45
+          - operator: "<="
+            expected_value: 0.55
+    ui:
+      panel: panels/supply.html

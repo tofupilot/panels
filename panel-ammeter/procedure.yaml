@@ -1,0 +1,31 @@
+name: Moving-Coil Ammeter
+version: 1.0.0
+
+plugs:
+  - key: load_ammeter
+    name: Panel ammeter
+    python: plugs.load_ammeter:LoadAmmeter
+
+main:
+  - key: current
+    name: Supply current
+    python: phases.panel_ammeter:supply_current
+    measurements:
+      - key: standby_current
+        name: Standby current
+        unit: "A"
+        validators:
+          - operator: ">="
+            expected_value: 0.5
+          - operator: "<="
+            expected_value: 1.0
+      - key: load_current
+        name: Full-load current
+        unit: "A"
+        validators:
+          - operator: ">="
+            expected_value: 2.5
+          - operator: "<="
+            expected_value: 3.5
+    ui:
+      panel: panels/ammeter.html

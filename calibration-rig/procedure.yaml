@@ -1,0 +1,29 @@
+name: Calibration Rig
+version: 1.0.0
+
+plugs:
+  - key: rig_camera
+    name: Station camera
+    python: plugs.rig_camera:RigCamera
+
+main:
+  - key: calibrate
+    name: Calibrate
+    python: phases.calibration_rig:calibrate
+    measurements:
+      - key: reprojection_rms
+        name: Reprojection error, RMS
+        unit: "px"
+        validators:
+          - operator: "<="
+            expected_value: 0.5
+      - key: focal_length
+        name: Focal length
+        unit: "px"
+        validators:
+          - operator: ">="
+            expected_value: 2800
+          - operator: "<="
+            expected_value: 3150
+    ui:
+      panel: panels/rig.html

@@ -1,0 +1,21 @@
+name: Alarm Annunciator
+version: 1.0.0
+
+plugs:
+  - key: annunciator
+    name: Alarm annunciator
+    python: plugs.annunciator:Annunciator
+
+main:
+  - key: alarms
+    name: Station alarms
+    python: phases.alarm_annunciator:watch
+    measurements:
+      - key: alarms_at_end
+        name: Alarms still active at the end
+        unit: ""
+        validators:
+          - operator: "<="
+            expected_value: 0
+    ui:
+      panel: panels/annunciator.html

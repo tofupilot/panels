@@ -1,0 +1,31 @@
+name: ChArUco Board
+version: 1.0.0
+
+plugs:
+  - key: charuco_camera
+    name: Station camera
+    python: plugs.charuco_camera:CharucoCamera
+
+main:
+  - key: board
+    name: Detect board
+    python: phases.charuco_detection:detect_board
+    measurements:
+      - key: markers_found
+        name: Markers found
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 17
+          - operator: "<="
+            expected_value: 17
+      - key: corners_found
+        name: Corners found
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 24
+          - operator: "<="
+            expected_value: 24
+    ui:
+      panel: panels/detection.html

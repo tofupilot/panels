@@ -1,0 +1,31 @@
+name: LED Level Meter
+version: 1.0.0
+
+plugs:
+  - key: audio_analyzer
+    name: Audio analyzer
+    python: plugs.audio_analyzer:AudioAnalyzer
+
+main:
+  - key: level
+    name: Output level
+    python: phases.led_level_meter:level
+    measurements:
+      - key: level_left
+        name: Left output level at nominal
+        unit: "dBu"
+        validators:
+          - operator: ">="
+            expected_value: 3.5
+          - operator: "<="
+            expected_value: 4.5
+      - key: level_right
+        name: Right output level at nominal
+        unit: "dBu"
+        validators:
+          - operator: ">="
+            expected_value: 3.5
+          - operator: "<="
+            expected_value: 4.5
+    ui:
+      panel: panels/meter.html

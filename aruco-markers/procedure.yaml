@@ -1,0 +1,23 @@
+name: ArUco Markers
+version: 1.0.0
+
+plugs:
+  - key: aruco_camera
+    name: Station camera
+    python: plugs.aruco_camera:ArucoCamera
+
+main:
+  - key: markers
+    name: Find markers
+    python: phases.aruco_markers:find_markers
+    measurements:
+      - key: markers_found
+        name: Markers identified
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 6
+          - operator: "<="
+            expected_value: 6
+    ui:
+      panel: panels/markers.html

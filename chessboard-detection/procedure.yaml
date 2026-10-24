@@ -1,0 +1,23 @@
+name: Chessboard Detection
+version: 1.0.0
+
+plugs:
+  - key: chessboard_camera
+    name: Station camera
+    python: plugs.chessboard_camera:ChessboardCamera
+
+main:
+  - key: corners
+    name: Find corners
+    python: phases.chessboard_detection:find_corners
+    measurements:
+      - key: corners_found
+        name: Inner corners found
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 54
+          - operator: "<="
+            expected_value: 54
+    ui:
+      panel: panels/detection.html

@@ -1,0 +1,27 @@
+name: USB 2.0 Eye and Mask
+version: 1.0.0
+
+plugs:
+  - key: sampling_scope
+    name: Sampling oscilloscope
+    python: plugs.sampling_scope:SamplingScope
+
+main:
+  - key: eye
+    name: Eye mask test
+    python: phases.usb_eye_diagram:eye_mask
+    measurements:
+      - key: eye_height
+        name: Eye height at the eye centre
+        unit: "mV"
+        validators:
+          - operator: ">="
+            expected_value: 500
+      - key: mask_hits
+        name: Samples inside the mask
+        unit: ""
+        validators:
+          - operator: "<="
+            expected_value: 0
+    ui:
+      panel: panels/diagram.html

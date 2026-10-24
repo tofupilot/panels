@@ -412,5 +412,401 @@
       "phases/board_view.py",
       "plugs/board_tester.py"
     ]
+  },
+  {
+    "slug": "relay-matrix",
+    "title": "Relay Matrix",
+    "description": "A 4 x 16 crosspoint switch matrix routing a multimeter to a board's test nodes one at a time: ABUS1 to the node, ABUS2 to ground, each closed crosspoint lit.",
+    "category": "synoptics",
+    "industry": "electronics",
+    "tags": [
+      "Crosspoints",
+      "Switching"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/matrix.html",
+      "phases/relay_matrix.py",
+      "plugs/switch_matrix.py"
+    ]
+  },
+  {
+    "slug": "led-color",
+    "title": "LED Color",
+    "description": "An LED analyzer's reading of a board's eight LEDs on the CIE 1931 chromaticity diagram: each LED's point drops into its bin, the ANSI 5700 K quadrangle for the white one.",
+    "category": "indicators",
+    "industry": "electronics",
+    "tags": [
+      "CIE 1931",
+      "Color bins"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/color.html",
+      "phases/led_color.py",
+      "plugs/led_analyzer.py"
+    ]
+  },
+  {
+    "slug": "bourdon-gauge",
+    "title": "Bourdon Pressure Gauge",
+    "description": "A Bourdon tube gauge on a pressure-decay leak test: the part fills to 6 bar, settles and holds while the decay is measured, then vents, with the red drag pointer keeping the peak.",
+    "category": "gauges",
+    "industry": "industrial-equipment",
+    "tags": [
+      "Dial",
+      "Drag pointer"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/gauge.html",
+      "phases/bourdon_gauge.py",
+      "plugs/leak_tester.py"
+    ]
+  },
+  {
+    "slug": "panel-ammeter",
+    "title": "Moving-Coil Ammeter",
+    "description": "A moving-coil DC panel ammeter, 0 to 5 A on a 90° scale with a mirror band, reading a product's supply current as its stages switch on; the needle overshoots and settles like a damped movement.",
+    "category": "gauges",
+    "industry": "electronics",
+    "tags": [
+      "Analog meter",
+      "Mirror scale"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/ammeter.html",
+      "phases/panel_ammeter.py",
+      "plugs/load_ammeter.py"
+    ]
+  },
+  {
+    "slug": "chart-recorder",
+    "title": "Chart Recorder",
+    "description": "A two-pen paper chart recorder on a climatic chamber: temperature in red, humidity in blue, the paper feeding down as the chamber runs a cold soak and a damp-heat dwell.",
+    "category": "animation",
+    "industry": "industrial-equipment",
+    "tags": [
+      "Strip chart",
+      "Two pens"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/recorder.html",
+      "phases/chart_recorder.py",
+      "plugs/chart_recorder.py"
+    ]
+  },
+  {
+    "slug": "force-gauge",
+    "title": "Force Gauge",
+    "description": "A digital force gauge on a test stand pushing a connector into its header: live force and the held peak on the LCD, and the force against travel with the insertion window.",
+    "category": "gauges",
+    "industry": "electronics",
+    "tags": [
+      "LCD",
+      "Force curve"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/gauge.html",
+      "phases/force_gauge.py",
+      "plugs/force_gauge.py"
+    ]
+  },
+  {
+    "slug": "electronic-load",
+    "title": "Electronic Load",
+    "description": "A DC electronic load discharging a 12 V, 7.2 Ah lead-acid battery at C/10 in constant current down to the 10.5 V cutoff: volts, amps, watts, amp-hours and elapsed time.",
+    "category": "gauges",
+    "industry": "batteries",
+    "tags": [
+      "Fluorescent display",
+      "Constant current"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/load.html",
+      "phases/electronic_load.py",
+      "plugs/electronic_load.py"
+    ]
+  },
+  {
+    "slug": "led-level-meter",
+    "title": "LED Level Meter",
+    "description": "A two-channel LED level meter on an amplifier's outputs while a 1 kHz tone steps up to the +4 dBu nominal level: green below 0 dBu, amber to +6, red above, with a peak-hold segment.",
+    "category": "bars",
+    "industry": "consumer-hardware",
+    "tags": [
+      "LED bargraph",
+      "Peak hold"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/meter.html",
+      "phases/led_level_meter.py",
+      "plugs/audio_analyzer.py"
+    ]
+  },
+  {
+    "slug": "alarm-annunciator",
+    "title": "Alarm Annunciator",
+    "description": "A test station's alarm annunciator through one incident: LOW AIR comes in first and flashes fast, VAC LOSS follows and flashes slow, both turn steady once acknowledged, then clear.",
+    "category": "alarms",
+    "industry": "industrial-equipment",
+    "tags": [
+      "Window tiles",
+      "First-out"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/annunciator.html",
+      "phases/alarm_annunciator.py",
+      "plugs/annunciator.py"
+    ]
+  },
+  {
+    "slug": "burn-in-heat-map",
+    "title": "Burn-in Heat Map",
+    "description": "A thermal camera's view of a board in burn-in, laid over its KiCad layout: the MCU and the regulator heat up, and the hottest point is marked with its temperature.",
+    "category": "pcb",
+    "industry": "electronics",
+    "tags": [
+      "Thermal camera",
+      "KiCad board"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/map.html",
+      "phases/burn_in_heat_map.py",
+      "plugs/thermal_camera.py"
+    ]
+  },
+  {
+    "slug": "usb-eye-diagram",
+    "title": "USB 2.0 Eye and Mask",
+    "description": "A USB 2.0 high-speed data line folded into an eye on the oscilloscope, traces fading with persistence, against the hexagonal Template 1 mask and the level limits.",
+    "category": "animation",
+    "industry": "electronics",
+    "tags": [
+      "Eye diagram",
+      "Mask test"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/diagram.html",
+      "phases/usb_eye_diagram.py",
+      "plugs/sampling_scope.py"
+    ]
+  },
+  {
+    "slug": "antenna-smith-chart",
+    "title": "Antenna Match on a Smith Chart",
+    "description": "A vector network analyzer's S11 sweep of a 2.4 GHz antenna on the Smith chart: the trace curls toward the centre as the matching network is tuned, with the 2.45 GHz marker and the VSWR 2 circle.",
+    "category": "layout",
+    "industry": "rf-wireless",
+    "tags": [
+      "Smith chart",
+      "S11"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/chart.html",
+      "phases/antenna_smith_chart.py",
+      "plugs/vna.py"
+    ]
+  },
+  {
+    "slug": "qam-constellation",
+    "title": "16-QAM Constellation",
+    "description": "A vector signal analyzer's 16-QAM constellation while a power amplifier is tuned: the symbol clouds tighten around the ideal points as the error vector magnitude falls under its limit.",
+    "category": "animation",
+    "industry": "rf-wireless",
+    "tags": [
+      "Constellation",
+      "EVM"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/constellation.html",
+      "phases/qam_constellation.py",
+      "plugs/signal_analyzer.py"
+    ]
+  },
+  {
+    "slug": "process-capability",
+    "title": "Process Capability",
+    "description": "A measurement's histogram filling board by board against its lower and upper limits, with the normal fit drawn over it, the way a quality engineer judges Cpk.",
+    "category": "bars",
+    "industry": "test-measurement",
+    "tags": [
+      "Histogram",
+      "Cpk"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/capability.html",
+      "phases/process_capability.py",
+      "plugs/production_line.py"
+    ]
+  },
+  {
+    "slug": "twelve-slot-fixture",
+    "title": "Twelve-Slot Fixture",
+    "description": "A 12-slot fixture testing boards in parallel: slots start one after another, each fills its progress bar, one goes amber for a retest, and all finish green.",
+    "category": "synoptics",
+    "industry": "electronics",
+    "tags": [
+      "Multi-slot",
+      "Progress"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/fixture.html",
+      "phases/twelve_slot_fixture.py",
+      "plugs/fixture_controller.py"
+    ]
+  },
+  {
+    "slug": "i2c-logic-capture",
+    "title": "I²C Logic Capture",
+    "description": "A logic analyzer capturing a TMP117 temperature read on I²C: SCL and SDA drawn as the capture sweeps across, the decoded address, register and data bytes above, and the temperature they encode.",
+    "category": "layout",
+    "industry": "electronics",
+    "tags": [
+      "Logic analyzer",
+      "Protocol decode"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/capture.html",
+      "phases/i2c_logic_capture.py",
+      "plugs/logic_analyzer.py"
+    ]
+  },
+  {
+    "slug": "calibration-rig",
+    "title": "Calibration Rig",
+    "description": "A fixed camera on an end-of-line calibration rig: four ChArUco targets tilted on an aluminium frame, their markers then their corners detected target by target, ending in the camera's calibration.",
+    "category": "synoptics",
+    "industry": "sensors",
+    "tags": [
+      "ChArUco",
+      "Photo overlay"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/rig.html",
+      "phases/calibration_rig.py",
+      "plugs/rig_camera.py"
+    ]
+  },
+  {
+    "slug": "chessboard-detection",
+    "title": "Chessboard Detection",
+    "description": "A chessboard target on a tilt stage, its 9 x 6 inner corners found row by row and joined the way OpenCV draws them.",
+    "category": "synoptics",
+    "industry": "sensors",
+    "tags": [
+      "Chessboard",
+      "Photo overlay"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/detection.html",
+      "phases/chessboard_detection.py",
+      "plugs/chessboard_camera.py"
+    ]
+  },
+  {
+    "slug": "charuco-detection",
+    "title": "ChArUco Board",
+    "description": "A ChArUco board on a rotary stage: its ArUco markers found first, then the chessboard corners between them, then the board's pose as three axes.",
+    "category": "synoptics",
+    "industry": "sensors",
+    "tags": [
+      "ChArUco",
+      "Pose axes"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/detection.html",
+      "phases/charuco_detection.py",
+      "plugs/charuco_camera.py"
+    ]
+  },
+  {
+    "slug": "aruco-markers",
+    "title": "ArUco Markers",
+    "description": "Six ArUco markers on a fixture plate: each one outlined as it is identified, then its pose drawn as three axes.",
+    "category": "synoptics",
+    "industry": "sensors",
+    "tags": [
+      "ArUco",
+      "Pose axes"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/markers.html",
+      "phases/aruco_markers.py",
+      "plugs/aruco_camera.py"
+    ]
+  },
+  {
+    "slug": "reprojection-error",
+    "title": "Reprojection Error",
+    "description": "The calibration's reprojection error: one bar per rig target against the 0.5 px limit, and every corner's residual in a scatter around zero.",
+    "category": "bars",
+    "industry": "sensors",
+    "tags": [
+      "Bars",
+      "Scatter"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/error.html",
+      "phases/reprojection_error.py",
+      "plugs/calibration_results.py"
+    ]
+  },
+  {
+    "slug": "camera-extrinsics",
+    "title": "Camera Extrinsics",
+    "description": "The rig as the calibration places it in 3D, seen from behind the camera: the camera's field of view and each target at its measured position and tilt.",
+    "category": "synoptics",
+    "industry": "sensors",
+    "tags": [
+      "3D view",
+      "Poses"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/extrinsics.html",
+      "phases/camera_extrinsics.py",
+      "plugs/pose_results.py"
+    ]
   }
 ]

@@ -1,0 +1,29 @@
+name: Process Capability
+version: 1.0.0
+
+plugs:
+  - key: production_line
+    name: Production line
+    python: plugs.production_line:ProductionLine
+
+main:
+  - key: cpk
+    name: Process capability
+    python: phases.process_capability:process_capability
+    measurements:
+      - key: cpk
+        name: Process capability index
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 1.33
+      - key: mean
+        name: VBUS mean
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 4.95
+          - operator: "<="
+            expected_value: 5.05
+    ui:
+      panel: panels/capability.html

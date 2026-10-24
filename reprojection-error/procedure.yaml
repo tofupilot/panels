@@ -1,0 +1,27 @@
+name: Reprojection Error
+version: 1.0.0
+
+plugs:
+  - key: calibration_results
+    name: Calibration results
+    python: plugs.calibration_results:CalibrationResults
+
+main:
+  - key: check
+    name: Check calibration
+    python: phases.reprojection_error:check_calibration
+    measurements:
+      - key: reprojection_rms
+        name: Reprojection error, RMS
+        unit: "px"
+        validators:
+          - operator: "<="
+            expected_value: 0.5
+      - key: worst_target_rms
+        name: Worst target's RMS
+        unit: "px"
+        validators:
+          - operator: "<="
+            expected_value: 0.5
+    ui:
+      panel: panels/error.html

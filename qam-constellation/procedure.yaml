@@ -1,0 +1,27 @@
+name: 16-QAM Constellation
+version: 1.0.0
+
+plugs:
+  - key: signal_analyzer
+    name: Vector signal analyzer
+    python: plugs.signal_analyzer:SignalAnalyzer
+
+main:
+  - key: evm
+    name: Modulation quality
+    python: phases.qam_constellation:modulation_quality
+    measurements:
+      - key: evm
+        name: EVM rms
+        unit: "%"
+        validators:
+          - operator: "<="
+            expected_value: 3.0
+      - key: mer
+        name: Modulation error ratio
+        unit: "dB"
+        validators:
+          - operator: ">="
+            expected_value: 30
+    ui:
+      panel: panels/constellation.html

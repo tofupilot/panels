@@ -1,0 +1,31 @@
+name: LED Color
+version: 1.0.0
+
+plugs:
+  - key: led_analyzer
+    name: LED analyzer
+    python: plugs.led_analyzer:LedAnalyzer
+
+main:
+  - key: leds
+    name: LED color
+    python: phases.led_color:measure_leds
+    measurements:
+      - key: red_x
+        name: D1 chromaticity x
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 0.685
+          - operator: "<="
+            expected_value: 0.705
+      - key: white_y
+        name: D8 chromaticity y
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 0.3243
+          - operator: "<="
+            expected_value: 0.3616
+    ui:
+      panel: panels/color.html

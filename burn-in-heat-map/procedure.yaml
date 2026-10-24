@@ -1,0 +1,21 @@
+name: Burn-in Heat Map
+version: 1.0.0
+
+plugs:
+  - key: thermal_camera
+    name: Thermal camera
+    python: plugs.thermal_camera:ThermalCamera
+
+main:
+  - key: burnin
+    name: Burn-in
+    python: phases.burn_in_heat_map:burn_in
+    measurements:
+      - key: max_temperature
+        name: Hottest point on the board
+        unit: "°C"
+        validators:
+          - operator: "<="
+            expected_value: 85
+    ui:
+      panel: panels/map.html

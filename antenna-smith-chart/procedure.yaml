@@ -1,0 +1,27 @@
+name: Antenna Match on a Smith Chart
+version: 1.0.0
+
+plugs:
+  - key: vna
+    name: Vector network analyzer
+    python: plugs.vna:NetworkAnalyzer
+
+main:
+  - key: match
+    name: Antenna match
+    python: phases.antenna_smith_chart:match
+    measurements:
+      - key: vswr
+        name: VSWR at 2.45 GHz
+        unit: ""
+        validators:
+          - operator: "<="
+            expected_value: 2.0
+      - key: return_loss
+        name: Return loss at 2.45 GHz
+        unit: "dB"
+        validators:
+          - operator: ">="
+            expected_value: 10
+    ui:
+      panel: panels/chart.html

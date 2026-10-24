@@ -1,0 +1,29 @@
+<div class="inst">
+<svg viewBox="0 0 320 210" role="img"><defs><linearGradient id="win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset=".16" stop-color="#000" stop-opacity="0"/></linearGradient></defs><rect x="1" y="1" width="318" height="208" rx="10" fill="#1a1d21" stroke="#0a0b0d" stroke-width="2"/><circle cx="11" cy="11" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M9 11h4" stroke="#0a0b0d"/><circle cx="309" cy="11" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M307 11h4" stroke="#0a0b0d"/><circle cx="11" cy="199" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M9 199h4" stroke="#0a0b0d"/><circle cx="309" cy="199" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M307 199h4" stroke="#0a0b0d"/><rect x="18" y="18" width="284" height="174" rx="5" fill="#04110f" stroke="#0a0b0d" stroke-width="2"/><rect x="18" y="18" width="284" height="174" rx="5" fill="url(#win)"/><rect x="28" y="30" width="26" height="13" rx="2" fill="#7ff5d6"/><text x="41" y="39.5" text-anchor="middle" style="font: 700 8px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #04110f">CC</text><text x="62" y="40" text-anchor="start" style="font: 600 8.5px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7ff5d6">SET 0.7200 A</text><text x="292" y="40" text-anchor="end" style="font: 600 8.5px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7ff5d6">CUTOFF 10.500 V</text><text x="240" y="92" text-anchor="end" data-bind="ui.v" style="font: 600 36px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7ff5d6">12.6000</text><text x="292" y="92" text-anchor="end" style="font: 700 17px system-ui, sans-serif; letter-spacing: 0; fill: #7ff5d6">V</text><text x="240" y="140" text-anchor="end" data-bind="ui.a" style="font: 600 36px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7ff5d6">0.0000</text><text x="292" y="140" text-anchor="end" style="font: 700 17px system-ui, sans-serif; letter-spacing: 0; fill: #7ff5d6">A</text><path d="M28 156H292" stroke="#12342c"/><text x="28" y="178" text-anchor="start" data-bind="ui.w" style="font: 600 10px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7ff5d6">0.000 W</text><text x="160" y="178" text-anchor="middle" data-bind="ui.ah" style="font: 600 10px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7ff5d6">0.000 Ah</text><text x="292" y="178" text-anchor="end" data-bind="ui.time" style="font: 600 10px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #7ff5d6">00:00:00</text></svg>
+</div>
+<style>
+  .inst { width: min(560px, 100%); margin: 0 auto; }
+  .inst svg { display: block; width: 100%; height: auto; }
+  .inst text { font-family: system-ui, sans-serif; }
+  .dp rect { fill: var(--off); }
+  .dp.on rect, .dp[data-value=true] rect { fill: var(--on); }
+  .led circle { fill: #2a2f35; transition: fill .15s; }
+  .led[data-value=true] circle { fill: var(--led, #38e07a); }
+  .ann text { fill: var(--off); transition: fill .15s; }
+  .ann[data-value=true] text { fill: var(--on); }
+  .d7 rect { fill: var(--off); transition: fill .08s; }
+  .d7[data-value="0"] :is(.sa, .sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="1"] :is(.sb, .sc) { fill: var(--on); }
+  .d7[data-value="2"] :is(.sa, .sb, .sd, .se, .sg) { fill: var(--on); }
+  .d7[data-value="3"] :is(.sa, .sb, .sc, .sd, .sg) { fill: var(--on); }
+  .d7[data-value="4"] :is(.sb, .sc, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="5"] :is(.sa, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="6"] :is(.sa, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="7"] :is(.sa, .sb, .sc) { fill: var(--on); }
+  .d7[data-value="8"] :is(.sa, .sb, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="9"] :is(.sa, .sb, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="-"] :is(.sg) { fill: var(--on); }
+  .d7[data-value="E"] :is(.sa, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="U"] :is(.sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="r"] :is(.se, .sg) { fill: var(--on); }
+</style>

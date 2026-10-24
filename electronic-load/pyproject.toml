@@ -1,0 +1,5 @@
+[project]
+name = "panels-electronic-load"
+version = "1.0.0"
+requires-python = ">=3.10"
+dependencies = []

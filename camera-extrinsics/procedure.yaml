@@ -1,0 +1,29 @@
+name: Camera Extrinsics
+version: 1.0.0
+
+plugs:
+  - key: pose_results
+    name: Calibration results
+    python: plugs.pose_results:PoseResults
+
+main:
+  - key: poses
+    name: Check poses
+    python: phases.camera_extrinsics:check_poses
+    measurements:
+      - key: min_tilt
+        name: Smallest target tilt
+        unit: "°"
+        validators:
+          - operator: ">="
+            expected_value: 20
+          - operator: "<="
+            expected_value: 45
+      - key: max_distance
+        name: Farthest target
+        unit: "m"
+        validators:
+          - operator: "<="
+            expected_value: 1.5
+    ui:
+      panel: panels/extrinsics.html

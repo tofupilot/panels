@@ -1,0 +1,31 @@
+name: Relay Matrix
+version: 1.0.0
+
+plugs:
+  - key: switch_matrix
+    name: Switch matrix
+    python: plugs.switch_matrix:SwitchMatrix
+
+main:
+  - key: nodes
+    name: Node voltages
+    python: phases.relay_matrix:scan_nodes
+    measurements:
+      - key: vref
+        name: VREF node
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 2.45
+          - operator: "<="
+            expected_value: 2.55
+      - key: v3v3
+        name: 3V3 node
+        unit: "V"
+        validators:
+          - operator: ">="
+            expected_value: 3.2
+          - operator: "<="
+            expected_value: 3.4
+    ui:
+      panel: panels/matrix.html

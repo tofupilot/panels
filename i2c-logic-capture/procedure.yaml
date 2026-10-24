@@ -1,0 +1,23 @@
+name: I²C Logic Capture
+version: 1.0.0
+
+plugs:
+  - key: logic_analyzer
+    name: Logic analyzer
+    python: plugs.logic_analyzer:LogicAnalyzer
+
+main:
+  - key: i2c
+    name: Sensor read
+    python: phases.i2c_logic_capture:sensor_read
+    measurements:
+      - key: temperature
+        name: Decoded TMP117 temperature
+        unit: "°C"
+        validators:
+          - operator: ">="
+            expected_value: 20
+          - operator: "<="
+            expected_value: 30
+    ui:
+      panel: panels/capture.html

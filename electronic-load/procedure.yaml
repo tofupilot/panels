@@ -1,0 +1,21 @@
+name: Electronic Load
+version: 1.0.0
+
+plugs:
+  - key: electronic_load
+    name: Electronic load
+    python: plugs.electronic_load:ElectronicLoad
+
+main:
+  - key: capacity
+    name: Capacity test
+    python: phases.electronic_load:discharge
+    measurements:
+      - key: capacity
+        name: Capacity to 10.5 V at C/10
+        unit: "Ah"
+        validators:
+          - operator: ">="
+            expected_value: 7.2
+    ui:
+      panel: panels/load.html

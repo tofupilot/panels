@@ -29,6 +29,28 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 | [Oscilloscope](oscilloscope) | A 4-channel scope screen on a board's power-up sequence |
 | [Test Point Probing](test-point-probing) | A KiCad board's test points probed one by one |
 | [Board View](board-view) | A KiCad board's parts lit step by step by the functional test |
+| [Relay Matrix](relay-matrix) | A 4 x 16 switch matrix routing the meter node by node |
+| [LED Color](led-color) | Eight LEDs dropping into their bins on the CIE 1931 diagram |
+| [Bourdon Pressure Gauge](bourdon-gauge) | A Bourdon gauge with a drag pointer on a leak test |
+| [Moving-Coil Ammeter](panel-ammeter) | A moving-coil ammeter with a mirror scale and a damped needle |
+| [Chart Recorder](chart-recorder) | A two-pen paper chart recorder on a climatic chamber |
+| [Force Gauge](force-gauge) | A force gauge on a connector insertion, with its force curve |
+| [Electronic Load](electronic-load) | A DC electronic load discharging a lead-acid battery |
+| [LED Level Meter](led-level-meter) | A two-channel LED level meter with peak hold |
+| [Alarm Annunciator](alarm-annunciator) | An alarm annunciator with an ISA-18.1 first-out sequence |
+| [Burn-in Heat Map](burn-in-heat-map) | A thermal camera's heat map over a KiCad board in burn-in |
+| [USB 2.0 Eye and Mask](usb-eye-diagram) | A USB 2.0 eye with persistence against its mask |
+| [Antenna Match on a Smith Chart](antenna-smith-chart) | An antenna's S11 sweep on a Smith chart as it is matched |
+| [16-QAM Constellation](qam-constellation) | A 16-QAM constellation tightening as the amplifier is tuned |
+| [Process Capability](process-capability) | A histogram filling unit by unit against LSL and USL |
+| [Twelve-Slot Fixture](twelve-slot-fixture) | A 12-slot fixture running boards in parallel |
+| [I²C Logic Capture](i2c-logic-capture) | A logic analyzer decoding an I²C temperature read |
+| [Calibration Rig](calibration-rig) | A camera calibration rig with every ChArUco target detected |
+| [Chessboard Detection](chessboard-detection) | A chessboard's inner corners found row by row |
+| [ChArUco Board](charuco-detection) | A ChArUco board's markers, corners and pose |
+| [ArUco Markers](aruco-markers) | Six ArUco markers identified, each with its pose |
+| [Reprojection Error](reprojection-error) | Reprojection error per target and every corner's residual |
+| [Camera Extrinsics](camera-extrinsics) | The camera and each rig target's measured pose in 3D |
 
 ## Run an Example
 

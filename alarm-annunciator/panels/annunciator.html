@@ -1,0 +1,40 @@
+<div class="inst">
+<svg viewBox="0 0 320 210" role="img"><rect x="1" y="1" width="318" height="208" rx="10" fill="#1a1d21" stroke="#0a0b0d" stroke-width="2"/><circle cx="11" cy="11" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M9 11h4" stroke="#0a0b0d"/><circle cx="309" cy="11" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M307 11h4" stroke="#0a0b0d"/><circle cx="11" cy="199" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M9 199h4" stroke="#0a0b0d"/><circle cx="309" cy="199" r="3.2" fill="#2a2f35" stroke="#0a0b0d"/><path d="M307 199h4" stroke="#0a0b0d"/><rect x="16" y="16" width="288" height="178" rx="5" fill="#0a0b0d"/><g class="tile alarm" data-bind="ui.e_stop"><rect class="lens" x="19.0" y="19" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="22.0" y="22" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="53.5" y="65" text-anchor="middle" style="font: 700 11px system-ui, sans-serif; letter-spacing: .06em">E-STOP</text></g><g class="tile alarm" data-bind="ui.overtemp"><rect class="lens" x="90.6" y="19" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="93.6" y="22" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="125.1" y="65" text-anchor="middle" style="font: 700 9px system-ui, sans-serif; letter-spacing: .06em">OVERTEMP</text></g><g class="tile alarm" data-bind="ui.vac_loss"><rect class="lens" x="162.2" y="19" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="165.2" y="22" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="196.7" y="65" text-anchor="middle" style="font: 700 9px system-ui, sans-serif; letter-spacing: .06em">VAC LOSS</text></g><g class="tile warn" data-bind="ui.hv_on"><rect class="lens" x="233.8" y="19" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="236.8" y="22" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="268.3" y="65" text-anchor="middle" style="font: 700 11px system-ui, sans-serif; letter-spacing: .06em">HV ON</text></g><g class="tile warn" data-bind="ui.low_air"><rect class="lens" x="19.0" y="106" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="22.0" y="109" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="53.5" y="152" text-anchor="middle" style="font: 700 11px system-ui, sans-serif; letter-spacing: .06em">LOW AIR</text></g><g class="tile warn" data-bind="ui.door_open"><rect class="lens" x="90.6" y="106" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="93.6" y="109" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="125.1" y="152" text-anchor="middle" style="font: 700 9px system-ui, sans-serif; letter-spacing: .06em">DOOR OPEN</text></g><g class="tile warn" data-bind="ui.fixture_open"><rect class="lens" x="162.2" y="106" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="165.2" y="109" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="196.7" y="152" text-anchor="middle" style="font: 700 7.5px system-ui, sans-serif; letter-spacing: .06em">FIXTURE OPEN</text></g><g class="tile status" data-bind="ui.dut_power"><rect class="lens" x="233.8" y="106" width="69" height="85" rx="3" stroke="#000" stroke-width="1.5"/><rect x="236.8" y="109" width="63" height="29.7" rx="2" fill="#fff" opacity=".05"/><text class="lg" x="268.3" y="152" text-anchor="middle" style="font: 700 9px system-ui, sans-serif; letter-spacing: .06em">DUT POWER</text></g></svg>
+</div>
+<style>
+  .inst { width: min(560px, 100%); margin: 0 auto; }
+  .inst svg { display: block; width: 100%; height: auto; }
+  .inst text { font-family: system-ui, sans-serif; }
+  .dp rect { fill: var(--off); }
+  .dp.on rect, .dp[data-value=true] rect { fill: var(--on); }
+  .led circle { fill: #2a2f35; transition: fill .15s; }
+  .led[data-value=true] circle { fill: var(--led, #38e07a); }
+  .ann text { fill: var(--off); transition: fill .15s; }
+  .ann[data-value=true] text { fill: var(--on); }
+  .d7 rect { fill: var(--off); transition: fill .08s; }
+  .d7[data-value="0"] :is(.sa, .sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="1"] :is(.sb, .sc) { fill: var(--on); }
+  .d7[data-value="2"] :is(.sa, .sb, .sd, .se, .sg) { fill: var(--on); }
+  .d7[data-value="3"] :is(.sa, .sb, .sc, .sd, .sg) { fill: var(--on); }
+  .d7[data-value="4"] :is(.sb, .sc, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="5"] :is(.sa, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="6"] :is(.sa, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="7"] :is(.sa, .sb, .sc) { fill: var(--on); }
+  .d7[data-value="8"] :is(.sa, .sb, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="9"] :is(.sa, .sb, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="-"] :is(.sg) { fill: var(--on); }
+  .d7[data-value="E"] :is(.sa, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="U"] :is(.sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="r"] :is(.se, .sg) { fill: var(--on); }
+  .lens { transition: fill .15s; }
+  .alarm .lens { fill: #3a1414; } .warn .lens { fill: #3a2a10; } .status .lens { fill: #123d25; }
+  .alarm[data-value]:not([data-value=""]) .lens { fill: #ff3b3b; }
+  .warn[data-value]:not([data-value=""]) .lens { fill: #ffb02e; }
+  .status[data-value]:not([data-value=""]) .lens { fill: #38e07a; }
+  .lg { fill: #5a6068; }
+  .tile[data-value]:not([data-value=""]) .lg { fill: #0a0b0d; }
+  @keyframes fast { 0%, 49% { opacity: 1; } 50%, 100% { opacity: .18; } }
+  @keyframes slow { 0%, 49% { opacity: 1; } 50%, 100% { opacity: .35; } }
+  .tile[data-value=first] { animation: fast .5s steps(1) infinite; }
+  .tile[data-value=new] { animation: slow 1.2s steps(1) infinite; }
+</style>

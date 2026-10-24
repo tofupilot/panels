@@ -1,0 +1,31 @@
+name: Chart Recorder
+version: 1.0.0
+
+plugs:
+  - key: chart_recorder
+    name: Chart recorder
+    python: plugs.chart_recorder:ChartRecorder
+
+main:
+  - key: profile
+    name: Climatic profile
+    python: phases.chart_recorder:record
+    measurements:
+      - key: dwell_temperature
+        name: Temperature in the damp-heat dwell
+        unit: "°C"
+        validators:
+          - operator: ">="
+            expected_value: 83
+          - operator: "<="
+            expected_value: 87
+      - key: dwell_humidity
+        name: Humidity in the damp-heat dwell
+        unit: "%RH"
+        validators:
+          - operator: ">="
+            expected_value: 80
+          - operator: "<="
+            expected_value: 90
+    ui:
+      panel: panels/recorder.html

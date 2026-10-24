@@ -1,0 +1,33 @@
+<div class="inst">
+<svg viewBox="0 0 320 210" role="img"><rect x="1" y="1" width="318" height="208" rx="10" fill="#07090b" stroke="#20262c" stroke-width="1.5"/><text x="12" y="84" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #7d8791">SCL</text><text x="12" y="142" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #7d8791">SDA</text><text x="12" y="184" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #7d8791">ALERT</text><path d="M44 70H49.2H54.4V92H58.6V70H61.2V92H63.8V70H66.4V92H69.0V70H71.6V92H74.2V70H76.8V92H79.4V70H82.0V92H84.6V70H87.2V92H89.8V70H92.4V92H95.0V70H97.6V92H100.2V70H102.8V92H105.4V70H108.0V92H110.6V70H113.2V92H115.8V70H118.4V92H121.0V70H123.6V92H126.2V70H128.8V92H131.4V70H134.0V92H136.6V70H139.2V92H141.8V70H144.4V92H147.0V70H149.6V92H151.7V70H155.9V92H160.0V70H162.6V92H165.3V70H167.9V92H170.5V70H173.1V92H175.7V70H178.3V92H180.9V70H183.5V92H186.1V70H188.7V92H191.3V70H193.9V92H196.5V70H199.1V92H201.7V70H204.3V92H206.9V70H209.5V92H212.1V70H214.7V92H217.3V70H219.9V92H222.5V70H225.1V92H227.7V70H230.3V92H232.9V70H235.5V92H238.1V70H240.7V92H243.3V70H245.9V92H248.5V70H251.1V92H253.7V70H256.3V92H258.9V70H261.5V92H264.1V70H266.7V92H269.3V70H271.9V92H274.5V70H277.1V92H279.7V70H282.3V92H284.9V70H287.5V92H290.1V70H292.7V92H295.3V70H297.9V92H301.6V70H312" class="w scl"/><path d="M44 128H49.2H51.8V150H57.8V128H63.0V150H68.2V150H73.4V128H78.6V150H83.8V150H89.0V150H94.2V150H99.4V150H104.6V150H109.8V150H115.0V150H120.2V150H125.4V150H130.6V150H135.8V150H141.1V150H146.3V150V128H153.3V150H159.3V128H164.5V150H169.7V150H174.9V128H180.1V150H185.3V150H190.5V150H195.7V128H200.9V150H206.1V150H211.3V150H216.5V150H221.7V150H226.9V128H232.1V128H237.3V150H242.5V150H247.7V150H252.9V128H258.1V150H263.3V150H268.5V150H273.8V150H279.0V150H284.2V150H289.4V150H294.6V128V150H304.2V128H312" class="w sda"/><path d="M44 180H312" class="w al"/><circle cx="51.8" cy="30" r="4" class="st"/><path d="M58.0 30l5 -7H92.6l5 7 -5 7H63.0z" class="by"/><text x="77.8" y="33" text-anchor="middle" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #e6eaee">48 W</text><circle cx="101.2" cy="30" r="2.2" class="ak"/><path d="M104.8 30l5 -7H139.5l5 7 -5 7H109.8z" class="by"/><text x="124.7" y="33" text-anchor="middle" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #e6eaee">00</text><circle cx="148.1" cy="30" r="2.2" class="ak"/><circle cx="153.3" cy="30" r="4" class="st"/><path d="M159.5 30l5 -7H194.1l5 7 -5 7H164.5z" class="by"/><text x="179.3" y="33" text-anchor="middle" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #e6eaee">48 R</text><circle cx="202.7" cy="30" r="2.2" class="ak"/><path d="M206.3 30l5 -7H241.0l5 7 -5 7H211.3z" class="by"/><text x="226.1" y="33" text-anchor="middle" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #e6eaee">0C</text><circle cx="249.6" cy="30" r="2.2" class="ak"/><path d="M253.2 30l5 -7H287.8l5 7 -5 7H258.2z" class="by"/><text x="273.0" y="33" text-anchor="middle" style="font: 600 8px ui-monospace, Menlo, monospace; fill: #e6eaee">80</text><circle cx="296.4" cy="30" r="2.2" class="nk"/><circle cx="304.2" cy="30" r="4" class="st"/><g class="cv" data-bind="ui.sweep"><rect x="42" y="18" width="272" height="168" fill="#07090b"/></g><text x="312" y="204" text-anchor="end" data-bind="ui.temp" style="font: 600 9px ui-monospace, Menlo, monospace; letter-spacing: 0; fill: #e6eaee"></text></svg>
+</div>
+<style>
+  .inst { width: min(560px, 100%); margin: 0 auto; }
+  .inst svg { display: block; width: 100%; height: auto; }
+  .inst text { font-family: system-ui, sans-serif; }
+  .dp rect { fill: var(--off); }
+  .dp.on rect, .dp[data-value=true] rect { fill: var(--on); }
+  .led circle { fill: #2a2f35; transition: fill .15s; }
+  .led[data-value=true] circle { fill: var(--led, #38e07a); }
+  .ann text { fill: var(--off); transition: fill .15s; }
+  .ann[data-value=true] text { fill: var(--on); }
+  .d7 rect { fill: var(--off); transition: fill .08s; }
+  .d7[data-value="0"] :is(.sa, .sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="1"] :is(.sb, .sc) { fill: var(--on); }
+  .d7[data-value="2"] :is(.sa, .sb, .sd, .se, .sg) { fill: var(--on); }
+  .d7[data-value="3"] :is(.sa, .sb, .sc, .sd, .sg) { fill: var(--on); }
+  .d7[data-value="4"] :is(.sb, .sc, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="5"] :is(.sa, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="6"] :is(.sa, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="7"] :is(.sa, .sb, .sc) { fill: var(--on); }
+  .d7[data-value="8"] :is(.sa, .sb, .sc, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="9"] :is(.sa, .sb, .sc, .sd, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="-"] :is(.sg) { fill: var(--on); }
+  .d7[data-value="E"] :is(.sa, .sd, .se, .sf, .sg) { fill: var(--on); }
+  .d7[data-value="U"] :is(.sb, .sc, .sd, .se, .sf) { fill: var(--on); }
+  .d7[data-value="r"] :is(.se, .sg) { fill: var(--on); }
+  .w { fill: none; stroke-width: 1.6; stroke-linejoin: round; }
+  .scl { stroke: #38e07a; } .sda { stroke: #22d3ee; } .al { stroke: #e879f9; }
+  .by { fill: #0f2a44; stroke: #2c5a86; } .ak { fill: #38e07a; } .nk { fill: #f2c230; } .st { fill: #2a2f35; stroke: #9aa8b6; }
+  .cv rect { transform-box: fill-box; transform-origin: right center; transform: scaleX(calc(1 - clamp(0, var(--value, 0), 1))); transition: transform .12s linear; }
+</style>

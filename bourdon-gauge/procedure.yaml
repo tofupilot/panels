@@ -1,0 +1,29 @@
+name: Bourdon Pressure Gauge
+version: 1.0.0
+
+plugs:
+  - key: leak_tester
+    name: Leak tester
+    python: plugs.leak_tester:LeakTester
+
+main:
+  - key: leak
+    name: Leak test
+    python: phases.bourdon_gauge:leak_test
+    measurements:
+      - key: test_pressure
+        name: Test pressure
+        unit: "bar"
+        validators:
+          - operator: ">="
+            expected_value: 5.8
+          - operator: "<="
+            expected_value: 6.2
+      - key: decay_rate
+        name: Pressure decay
+        unit: "Pa/min"
+        validators:
+          - operator: "<="
+            expected_value: 50
+    ui:
+      panel: panels/gauge.html

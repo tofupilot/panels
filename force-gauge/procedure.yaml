@@ -1,0 +1,31 @@
+name: Force Gauge
+version: 1.0.0
+
+plugs:
+  - key: force_gauge
+    name: Force gauge
+    python: plugs.force_gauge:ForceGauge
+
+main:
+  - key: insertion
+    name: Connector insertion
+    python: phases.force_gauge:insert
+    measurements:
+      - key: insertion_peak
+        name: Insertion force peak
+        unit: "N"
+        validators:
+          - operator: ">="
+            expected_value: 10
+          - operator: "<="
+            expected_value: 35
+      - key: peak_travel
+        name: Travel at the peak
+        unit: "mm"
+        validators:
+          - operator: ">="
+            expected_value: 1.5
+          - operator: "<="
+            expected_value: 4.5
+    ui:
+      panel: panels/gauge.html

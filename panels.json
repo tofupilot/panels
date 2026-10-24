@@ -772,5 +772,113 @@
       "phases/camera_extrinsics.py",
       "plugs/pose_results.py"
     ]
+  },
+  {
+    "slug": "wafer-map",
+    "title": "Wafer Map",
+    "description": "A 200 mm wafer being probed: the 2 x 2 probe card steps row pair by row pair in a serpentine, and each die takes its bin color as it is tested, edge fails and a scratch included.",
+    "category": "synoptics",
+    "industry": "semiconductors",
+    "tags": [
+      "Bin map",
+      "Multi-site probing"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/map.html",
+      "phases/wafer_map.py",
+      "plugs/prober.py"
+    ]
+  },
+  {
+    "slug": "probe-card-touchdown",
+    "title": "Probe Card Touchdown",
+    "description": "A 2 x 2 multi-site cantilever probe card seen through its window during wafer sort: each site under the needles takes the bin color of its die at every touchdown, with the touchdown's test time.",
+    "category": "indicators",
+    "industry": "semiconductors",
+    "tags": [
+      "Multi-site",
+      "Probe card"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/touchdown.html",
+      "phases/probe_card_touchdown.py",
+      "plugs/probe_card.py"
+    ]
+  },
+  {
+    "slug": "parametric-wafer-map",
+    "title": "Parametric Wafer Map",
+    "description": "Each die's threshold voltage measured during wafer sort, drawn on the wafer as a heat map from 430 to 460 mV: the radial rise toward the edge shows up as the probe card steps across.",
+    "category": "synoptics",
+    "industry": "semiconductors",
+    "tags": [
+      "Heat map",
+      "Vth"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/map.html",
+      "phases/parametric_wafer_map.py",
+      "plugs/parametric_tester.py"
+    ]
+  },
+  {
+    "slug": "stacked-wafer-map",
+    "title": "Stacked Wafer Map",
+    "description": "The fails of a 25-wafer lot stacked die by die as each wafer finishes sort: random fails stay faint, while the edge ring and a scratch that repeats on several wafers build up.",
+    "category": "synoptics",
+    "industry": "semiconductors",
+    "tags": [
+      "Stacked map",
+      "Lot"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/map.html",
+      "phases/stacked_wafer_map.py",
+      "plugs/lot_tester.py"
+    ]
+  },
+  {
+    "slug": "wafer-lot",
+    "title": "Wafer Lot",
+    "description": "The 25 wafers of a lot as thumbnails, each one filling in with its fail map when its sort ends, the wafer on the prober outlined; scratched wafers stand out at a glance.",
+    "category": "layout",
+    "industry": "semiconductors",
+    "tags": [
+      "Lot",
+      "Thumbnails"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/lot.html",
+      "phases/wafer_lot.py",
+      "plugs/lot_tester.py"
+    ]
+  },
+  {
+    "slug": "bin-pareto",
+    "title": "Bin Pareto",
+    "description": "The fail bins of a 25-wafer lot as a pareto, the bars growing as each wafer is sorted: Vth and continuity fails at the edge lead, then leakage and the functional fails of the scratched wafers.",
+    "category": "bars",
+    "industry": "semiconductors",
+    "tags": [
+      "Pareto",
+      "Soft bins"
+    ],
+    "cli": "2.8.0",
+    "files": [
+      "procedure.yaml",
+      "panels/pareto.html",
+      "phases/bin_pareto.py",
+      "plugs/lot_tester.py"
+    ]
   }
 ]

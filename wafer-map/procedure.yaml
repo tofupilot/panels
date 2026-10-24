@@ -1,0 +1,27 @@
+name: Wafer Map
+version: 1.0.0
+
+plugs:
+  - key: prober
+    name: Wafer prober
+    python: plugs.prober:Prober
+
+main:
+  - key: sort
+    name: Wafer sort
+    python: phases.wafer_map:sort_wafer
+    measurements:
+      - key: wafer_yield
+        name: Wafer yield
+        unit: "%"
+        validators:
+          - operator: ">="
+            expected_value: 90
+      - key: good_dies
+        name: Good dies
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 500
+    ui:
+      panel: panels/map.html

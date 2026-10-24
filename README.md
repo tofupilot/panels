@@ -49,6 +49,12 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 | [ArUco Markers](aruco-markers) | Six ArUco markers identified, each with its pose |
 | [Reprojection Error](reprojection-error) | Reprojection error per target and every corner's residual |
 | [Camera Extrinsics](camera-extrinsics) | The camera and each rig target's measured pose in 3D |
+| [Wafer Map](wafer-map) | A wafer's bin map filling in as the probe card steps across it |
+| [Probe Card Touchdown](probe-card-touchdown) | A multi-site probe card's sites colored by bin at every touchdown |
+| [Parametric Wafer Map](parametric-wafer-map) | A heat map of each die's threshold voltage across the wafer |
+| [Stacked Wafer Map](stacked-wafer-map) | A lot's fails stacked die by die, wafer after wafer |
+| [Wafer Lot](wafer-lot) | A 25-wafer lot as thumbnails, filling in as each wafer is sorted |
+| [Bin Pareto](bin-pareto) | A lot's fail bins as a pareto, growing wafer by wafer |
 
 ## Run an Example
 

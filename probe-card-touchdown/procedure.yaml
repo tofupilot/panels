@@ -1,0 +1,27 @@
+name: Probe Card Touchdown
+version: 1.0.0
+
+plugs:
+  - key: probe_card
+    name: Probe card and tester
+    python: plugs.probe_card:ProbeCard
+
+main:
+  - key: sort
+    name: Wafer sort
+    python: phases.probe_card_touchdown:touchdowns
+    measurements:
+      - key: touchdown_time
+        name: Mean touchdown test time
+        unit: "ms"
+        validators:
+          - operator: "<="
+            expected_value: 700
+      - key: site_yield_spread
+        name: Yield spread between sites
+        unit: "%"
+        validators:
+          - operator: "<="
+            expected_value: 5
+    ui:
+      panel: panels/touchdown.html

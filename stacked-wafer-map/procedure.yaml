@@ -1,0 +1,27 @@
+name: Stacked Wafer Map
+version: 1.0.0
+
+plugs:
+  - key: lot_tester
+    name: Wafer sort tester
+    python: plugs.lot_tester:LotTester
+
+main:
+  - key: lot
+    name: Lot sort
+    python: phases.stacked_wafer_map:stack_lot
+    measurements:
+      - key: repeating_fail_dies
+        name: Dies failing on 4 or more wafers
+        unit: ""
+        validators:
+          - operator: "<="
+            expected_value: 40
+      - key: lot_yield
+        name: Lot yield
+        unit: "%"
+        validators:
+          - operator: ">="
+            expected_value: 90
+    ui:
+      panel: panels/map.html

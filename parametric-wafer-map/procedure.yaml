@@ -1,0 +1,29 @@
+name: Parametric Wafer Map
+version: 1.0.0
+
+plugs:
+  - key: parametric_tester
+    name: Parametric tester
+    python: plugs.parametric_tester:ParametricTester
+
+main:
+  - key: vth
+    name: Parametric test
+    python: phases.parametric_wafer_map:measure_vth
+    measurements:
+      - key: vth_mean
+        name: Mean threshold voltage
+        unit: "mV"
+        validators:
+          - operator: ">="
+            expected_value: 435
+          - operator: "<="
+            expected_value: 455
+      - key: vth_sigma
+        name: Threshold voltage spread (1 sigma)
+        unit: "mV"
+        validators:
+          - operator: "<="
+            expected_value: 10
+    ui:
+      panel: panels/map.html

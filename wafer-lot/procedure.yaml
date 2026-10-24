@@ -1,0 +1,29 @@
+name: Wafer Lot
+version: 1.0.0
+
+plugs:
+  - key: lot_tester
+    name: Wafer sort tester
+    python: plugs.lot_tester:LotTester
+
+main:
+  - key: lot
+    name: Lot sort
+    python: phases.wafer_lot:sort_lot
+    measurements:
+      - key: lot_yield
+        name: Lot yield
+        unit: "%"
+        validators:
+          - operator: ">="
+            expected_value: 90
+      - key: wafers_sorted
+        name: Wafers sorted
+        unit: ""
+        validators:
+          - operator: ">="
+            expected_value: 25
+          - operator: "<="
+            expected_value: 25
+    ui:
+      panel: panels/lot.html

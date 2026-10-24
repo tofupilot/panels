@@ -826,59 +826,5 @@
       "phases/parametric_wafer_map.py",
       "plugs/parametric_tester.py"
     ]
-  },
-  {
-    "slug": "stacked-wafer-map",
-    "title": "Stacked Wafer Map",
-    "description": "The fails of a 25-wafer lot stacked die by die as each wafer finishes sort: random fails stay faint, while the edge ring and a scratch that repeats on several wafers build up.",
-    "category": "synoptics",
-    "industry": "semiconductors",
-    "tags": [
-      "Stacked map",
-      "Lot"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/map.html",
-      "phases/stacked_wafer_map.py",
-      "plugs/lot_tester.py"
-    ]
-  },
-  {
-    "slug": "wafer-lot",
-    "title": "Wafer Lot",
-    "description": "The 25 wafers of a lot as thumbnails, each one filling in with its fail map when its sort ends, the wafer on the prober outlined; scratched wafers stand out at a glance.",
-    "category": "layout",
-    "industry": "semiconductors",
-    "tags": [
-      "Lot",
-      "Thumbnails"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/lot.html",
-      "phases/wafer_lot.py",
-      "plugs/lot_tester.py"
-    ]
-  },
-  {
-    "slug": "bin-pareto",
-    "title": "Bin Pareto",
-    "description": "The fail bins of a 25-wafer lot as a pareto, the bars growing as each wafer is sorted: Vth and continuity fails at the edge lead, then leakage and the functional fails of the scratched wafers.",
-    "category": "bars",
-    "industry": "semiconductors",
-    "tags": [
-      "Pareto",
-      "Soft bins"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/pareto.html",
-      "phases/bin_pareto.py",
-      "plugs/lot_tester.py"
-    ]
   }
 ]

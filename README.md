@@ -42,8 +42,6 @@ See them running live at [tofupilot.com/panels](https://tofupilot.com/panels), a
 | [USB 2.0 Eye and Mask](usb-eye-diagram) | A USB 2.0 eye with persistence against its mask |
 | [Antenna Match on a Smith Chart](antenna-smith-chart) | An antenna's S11 sweep on a Smith chart as it is matched |
 | [16-QAM Constellation](qam-constellation) | A 16-QAM constellation tightening as the amplifier is tuned |
-| [Process Capability](process-capability) | A histogram filling unit by unit against LSL and USL |
-| [Twelve-Slot Fixture](twelve-slot-fixture) | A 12-slot fixture running boards in parallel |
 | [I²C Logic Capture](i2c-logic-capture) | A logic analyzer decoding an I²C temperature read |
 | [Calibration Rig](calibration-rig) | A camera calibration rig with every ChArUco target detected |
 | [Chessboard Detection](chessboard-detection) | A chessboard's inner corners found row by row |

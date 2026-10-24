@@ -648,42 +648,6 @@
     ]
   },
   {
-    "slug": "process-capability",
-    "title": "Process Capability",
-    "description": "A measurement's histogram filling board by board against its lower and upper limits, with the normal fit drawn over it, the way a quality engineer judges Cpk.",
-    "category": "bars",
-    "industry": "test-measurement",
-    "tags": [
-      "Histogram",
-      "Cpk"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/capability.html",
-      "phases/process_capability.py",
-      "plugs/production_line.py"
-    ]
-  },
-  {
-    "slug": "twelve-slot-fixture",
-    "title": "Twelve-Slot Fixture",
-    "description": "A 12-slot fixture testing boards in parallel: slots start one after another, each fills its progress bar, one goes amber for a retest, and all finish green.",
-    "category": "synoptics",
-    "industry": "electronics",
-    "tags": [
-      "Multi-slot",
-      "Progress"
-    ],
-    "cli": "2.8.0",
-    "files": [
-      "procedure.yaml",
-      "panels/fixture.html",
-      "phases/twelve_slot_fixture.py",
-      "plugs/fixture_controller.py"
-    ]
-  },
-  {
     "slug": "i2c-logic-capture",
     "title": "I²C Logic Capture",
     "description": "A logic analyzer capturing a TMP117 temperature read on I²C: SCL and SDA drawn as the capture sweeps across, the decoded address, register and data bytes above, and the temperature they encode.",
